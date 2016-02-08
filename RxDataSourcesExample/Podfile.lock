@@ -1,0 +1,21 @@
+PODS:
+  - NSObject+Rx (1.2.0):
+    - RxSwift (~> 2.0.0)
+  - RxCocoa (2.1.0):
+    - RxSwift (~> 2.0)
+  - RxDataSources (0.3):
+    - RxCocoa (~> 2.0)
+    - RxSwift (~> 2.0)
+  - RxSwift (2.0.0)
+
+DEPENDENCIES:
+  - NSObject+Rx
+  - RxDataSources
+
+SPEC CHECKSUMS:
+  NSObject+Rx: 552d0a5bb78087b0faf9f8a066148577f1231426
+  RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
+  RxDataSources: 6993a25d61c795f8d127a78f688b71376d5a4dad
+  RxSwift: d83246efa6f16c50c143bec134649d045498f601
+
+COCOAPODS: 0.39.0
