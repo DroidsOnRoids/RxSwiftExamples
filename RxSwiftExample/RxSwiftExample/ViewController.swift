@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var shownCities = [String]() // Here we have the data source for UITableView
-    var allCities = [String]() // This will be our mocked API data source
+    var shownCities = [String]() // Data source for UITableView
+    var allCities = [String]() // Our mocked API data source
     let disposeBag = DisposeBag() // Bag of disposables to release them after view is released (protect against retain cycle)
     
     override func viewDidLoad() {
