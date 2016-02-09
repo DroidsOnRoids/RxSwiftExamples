@@ -12,4 +12,4 @@ Sunshinejr, thesunshinejr@gmail.com
 
 ## License
 
-Moya-ModelMapper is available under the MIT license. See the LICENSE file for more info.
+RxSwiftExamples is available under the MIT license. See the LICENSE file for more info.
