@@ -7,23 +7,23 @@
 //
 //
 //
-// Here we have basic example of RxSwift. UI is pretty simple, take a look at Main.storyboard.
-// It is basically UISearchBar + UITableView. The main idea of this app is that every time
-// someone types something in the search bar, we want to get the cities from API that starts
-// with the letters someone typed. The main problems here are:
-// a) What if the text(here query) in search bar is empty?
-// b) What if someone will spam API by continuesly changing letters?
+//  Here we have basic example of RxSwift. UI is pretty simple, take a look at Main.storyboard.
+//  It is basically UISearchBar + UITableView. The main idea of this app is that every time
+//  someone types something in the search bar, we want to get the cities from API that starts
+//  with the letters someone typed. The main problems here are:
+//  a) What if the text(here query) in search bar is empty?
+//  b) What if someone will spam API by continuesly changing letters?
 //
-// We want to be safe with our app so we will filter the empty queries to protect against a).
-// About the b), we will use RxSwift's throttle() & distinctUntilChanged(). The first one
-// waits given time for a change. If the change occured before the time given, timer will reset
-// and Rx will wait again for a change. If change didn't happen in specified time, the next value
-// will go through. Basically it means that we will wait X time before sending API request, if someone
-// changed his mind (or just spam), we will wait patiently. If not, we will just do the API request.
-// Second function distinctUntilChanged() will protect us against searching the same phrase again.
-// So if someone type A, then will type AB and go back to A, we will not fire another request (it is
-// just in our case that we want that behavior, if you have dynamically changed fields, you better
-// leave this function).
+//  We want to be safe with our app so we will filter the empty queries to protect against a).
+//  About the b), we will use RxSwift's throttle() & distinctUntilChanged(). The first one
+//  waits given time for a change. If the change occured before the time given, timer will reset
+//  and Rx will wait again for a change. If change didn't happen in specified time, the next value
+//  will go through. Basically it means that we will wait X time before sending API request, if someone
+//  changed his mind (or just spam), we will wait patiently. If not, we will just do the API request.
+//  Second function distinctUntilChanged() will protect us against searching the same phrase again.
+//  So if someone type A, then will type AB and go back to A, we will not fire another request (it is
+//  just in our case that we want that behavior, if you have dynamically changed fields, you better
+//  leave this function).
 //
 
 import UIKit

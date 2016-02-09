@@ -6,11 +6,11 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 //
-// This is basically the copy of RxSwiftExample, but using RxDataSources and NSObject-Rx,
-// from the awesome RxSwiftCommunity. The first module, RxDataSources, allows to easily 
-// use blocks and bind them to table views instead of using large delegate methods. The
-// second one, NSObject-Rx, is just a wrapper that you don't have to everytime write 
-// DisposableBags, Rx will take care of it for you!
+//  This is basically the copy of RxSwiftExample, but using RxDataSources and NSObject-Rx,
+//  from the awesome RxSwiftCommunity. The first module, RxDataSources, allows to easily
+//  use blocks and bind them to table views instead of using large delegate methods. The
+//  second one, NSObject-Rx, is just a wrapper that you don't have to everytime write
+//  DisposableBags, Rx will take care of it for you!
 //
 
 import UIKit
