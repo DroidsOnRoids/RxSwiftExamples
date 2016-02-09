@@ -35,14 +35,15 @@ class ViewController: UIViewController {
     }
     
     func setup() {
-
         allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
-        reloadItems(allCities) // Set initial items
+        shownCitiesSection = DefaultSection(header: "Cities", items: allCities.toItems(), updated: NSDate())
+        sections.value = [shownCitiesSection]
         dataSource.configureCell = { (tableView, indexPath, index) in
             let cell = tableView.dequeueReusableCellWithIdentifier("cityPrototypeCell", forIndexPath: indexPath)
             cell.textLabel?.text = self.shownCitiesSection.items[indexPath.row].title
             return cell
         }
+        
         sections
             .asObservable()
             .bindTo(tableView.rx_itemsWithDataSource(dataSource))
@@ -51,16 +52,20 @@ class ViewController: UIViewController {
             .rx_text
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .filter { $0.characters.count > 0 }
             .subscribeNext { [unowned self] (query) in
-                self.reloadItems(self.allCities.filter { $0.hasPrefix(query) })
+                let items: [String]
+                if query.characters.count > 0 {
+                    items = self.allCities.filter { $0.hasPrefix(query) }
+                } else {
+                    items = self.allCities
+                }
+                self.shownCitiesSection = DefaultSection(
+                    original: self.shownCitiesSection,
+                    items: items.toItems()
+                )
+                self.sections.value = [self.shownCitiesSection]
             }
             .addDisposableTo(rx_disposeBag)
-    }
-    
-    func reloadItems(items: [String]) {
-        shownCitiesSection = DefaultSection(header: "Cities", items: items.toItems(), updated: NSDate())
-        sections.value = [self.shownCitiesSection]
     }
 
 }

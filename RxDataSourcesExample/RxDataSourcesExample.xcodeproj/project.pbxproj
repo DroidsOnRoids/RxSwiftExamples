@@ -126,6 +126,7 @@
 				TargetAttributes = {
 					14BB13A31C68DB830038C66A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 53CHNC6J63;
 					};
 				};
 			};
@@ -327,10 +328,14 @@
 			baseConfigurationReference = D958CDCEF183535D278A5661 /* Pods-RxDataSourcesExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RxDataSourcesExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -339,10 +344,14 @@
 			baseConfigurationReference = 390A7894F079811290E60DBC /* Pods-RxDataSourcesExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RxDataSourcesExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
