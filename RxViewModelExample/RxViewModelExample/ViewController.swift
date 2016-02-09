@@ -5,7 +5,20 @@
 //  Created by Lukasz Mroz on 09.02.2016.
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
+//
+//  This example is to show how you can use MVVM (Model-View-ViewModel)
+//  with Rx and Swift. We will use RxViewModel to be sure our view is active.
+//  Here we need one ViewModel, which will have logic to our CircleView. More
+//  on the functionality of the Model in CircleViewModel.swift. Here we observer
+//  when the color of circle should be changed (by subscribing to the observable
+//  in CircleViewModel, and based on the color given, we change the color of the 
+//  CircleView and use the complementary color for the background view given by
+//  Chameleon. To achieve that we need to bind the center of the CircleView frame
+//  to centerObservable in CircleViewModel. It will then handle the rest.
+//
+//
 
+import ChameleonFramework
 import UIKit
 import RxSwift
 import RxCocoa
@@ -30,16 +43,18 @@ class ViewController: UIViewController {
         circleView.backgroundColor = UIColor.greenColor()
         view.addSubview(circleView)
         
-        // View model
         circleViewModel = CircleViewModel()
+        // Bind the center point of the CircleView to the centerObservable
         _ = circleView
             .rx_observe(CGPoint.self, "center")
-            .bindTo(circleViewModel!.frameObservable)
+            .bindTo(circleViewModel!.centerObservable)
         
+        // Subscribe to backgroundObservable to get new colors from the ViewModel.
         circleViewModel?.backgroundColorObservable
             .subscribeNext({ (backgroundColor) in
                 UIView.animateWithDuration(0.1) {
                     self.circleView.backgroundColor = backgroundColor
+                    self.view.backgroundColor = UIColor.init(complementaryFlatColorOf: backgroundColor, withAlpha: 1.0)
                 }
             })
             .addDisposableTo(disposeBag)

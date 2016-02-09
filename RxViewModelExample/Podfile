@@ -6,6 +6,7 @@ use_frameworks!
 target 'RxViewModelExample' do
 
 pod 'RxViewModel'
+pod 'ChameleonFramework/Swift'
 
 end
 
