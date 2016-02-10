@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     let dataSource = RxTableViewSectionedReloadDataSource<DefaultSection>()
     var shownCitiesSection: DefaultSection!
     var allCities = [String]()
-    var sections = Variable([DefaultSection]())
+    var sections = PublishSubject<[DefaultSection]>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     func setup() {
         allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
         shownCitiesSection = DefaultSection(header: "Cities", items: allCities.toItems(), updated: NSDate())
-        sections.value = [shownCitiesSection]
+        sections.onNext([shownCitiesSection])
         dataSource.configureCell = { (tableView, indexPath, index) in
             let cell = tableView.dequeueReusableCellWithIdentifier("cityPrototypeCell", forIndexPath: indexPath)
             cell.textLabel?.text = self.shownCitiesSection.items[indexPath.row].title
@@ -63,7 +63,8 @@ class ViewController: UIViewController {
                     original: self.shownCitiesSection,
                     items: items.toItems()
                 )
-                self.sections.value = [self.shownCitiesSection]
+
+                self.sections.onNext([self.shownCitiesSection])
             }
             .addDisposableTo(rx_disposeBag)
     }
