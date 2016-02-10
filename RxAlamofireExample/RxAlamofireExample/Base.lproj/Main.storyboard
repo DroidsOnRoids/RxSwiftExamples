@@ -60,6 +60,7 @@
                     <connections>
                         <outlet property="searchBar" destination="2SG-Q0-bV8" id="4m7-p3-trj"/>
                         <outlet property="tableView" destination="crz-Iy-mWd" id="xF8-Mr-9eI"/>
+                        <outlet property="tableViewBottomConstraint" destination="F3y-oL-BeT" id="Sbo-cA-Mbp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
