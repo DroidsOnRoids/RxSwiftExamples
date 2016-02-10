@@ -71,6 +71,7 @@
                     <navigationItem key="navigationItem" title="Register form" id="zkX-1z-NlE"/>
                     <connections>
                         <outlet property="registerButton" destination="NMN-PV-FtB" id="Mxr-xq-Bda"/>
+                        <outlet property="stackView" destination="BWz-SN-ggB" id="04z-p6-iq4"/>
                         <outletCollection property="formFields" destination="sbC-wN-qdi" collectionClass="NSMutableArray" id="svJ-02-KVr"/>
                         <outletCollection property="formFields" destination="itd-Ku-whP" collectionClass="NSMutableArray" id="nZa-Iy-LKz"/>
                         <outletCollection property="formFields" destination="HJ6-Mg-LVK" collectionClass="NSMutableArray" id="gwm-te-Wfg"/>

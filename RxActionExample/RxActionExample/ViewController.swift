@@ -27,7 +27,9 @@ class ViewController: UIViewController {
 
     @IBOutlet var formFields: [UITextField]!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
     
+    var currentTranslation: CGFloat = 0
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -36,13 +38,18 @@ class ViewController: UIViewController {
     }
     
     func setup() {
+        setupRX()
+        setupUI()
+    }
+    
+    func setupRX() {
         let validUsername = formFields
             .map { input in
                 input.rx_text.map { $0.characters.count > 0 }
             }
             .combineLatest { (filters) -> Bool in
                 return filters.filter { return $0 }.count == filters.count
-            }
+        }
         let action = Action<Void, Void>(enabledIf: validUsername) { input in
             let alert = UIAlertController(title: "Wooo!", message: "Registration completed!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -51,6 +58,54 @@ class ViewController: UIViewController {
         }
         registerButton.rx_action = action
     }
-
+    
+    func setupUI() {
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "keyboardWillShow:",
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "keyboardWillHide:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() else { return }
+        let margin: CGFloat = 10.0
+        var responderY: CGFloat!
+        formFields.forEach { field in
+            if field.isFirstResponder() {
+                responderY = CGRectGetMaxY(field.frame) + CGRectGetMinY(stackView.frame)
+                return
+            }
+        }
+        currentTranslation = currentTranslation + responderY - CGRectGetMinY(keyboardFrame) + margin
+        if currentTranslation != 0 {
+            UIView.animateWithDuration(0.3) {
+                self.stackView.transform = CGAffineTransformMakeTranslation(0.0, (-1)*self.currentTranslation)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animateWithDuration(0.3) {
+            self.currentTranslation = 0.0
+            self.stackView.transform = CGAffineTransformMakeTranslation(0.0, 0.0)
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        view.endEditing(true)
+    }
+    
 }
 
