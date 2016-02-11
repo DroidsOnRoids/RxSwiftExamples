@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144106B71C6CC62D00CD6F15 /* GithubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */; };
+		144106B91C6CC75F00CD6F15 /* RespositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */; };
+		144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */; };
+		144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */; };
 		14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750C91C6B8289005EED40 /* AppDelegate.swift */; };
-		14F750CC1C6B8289005EED40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750CB1C6B8289005EED40 /* ViewController.swift */; };
+		14F750CC1C6B8289005EED40 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750CB1C6B8289005EED40 /* IssueListViewController.swift */; };
 		14F750CF1C6B8289005EED40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F750CD1C6B8289005EED40 /* Main.storyboard */; };
 		14F750D11C6B8289005EED40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F750D01C6B8289005EED40 /* Assets.xcassets */; };
 		14F750D41C6B8289005EED40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F750D21C6B8289005EED40 /* LaunchScreen.storyboard */; };
@@ -17,9 +21,13 @@
 
 /* Begin PBXFileReference section */
 		12F05D8CBEB80C80C97FE2CD /* Pods-RxMoyaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMoyaExample/Pods-RxMoyaExample.release.xcconfig"; sourceTree = "<group>"; };
+		144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubEndpoint.swift; sourceTree = "<group>"; };
+		144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespositoryEntity.swift; sourceTree = "<group>"; };
+		144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
+		144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTrackerModel.swift; sourceTree = "<group>"; };
 		14F750C61C6B8289005EED40 /* RxMoyaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMoyaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F750C91C6B8289005EED40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14F750CB1C6B8289005EED40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14F750CB1C6B8289005EED40 /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		14F750CE1C6B8289005EED40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F750D01C6B8289005EED40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14F750D31C6B8289005EED40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +48,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		144106BA1C6CCB4100CD6F15 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */,
+				144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */,
+				144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		144106BB1C6CD05400CD6F15 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				14F750CB1C6B8289005EED40 /* IssueListViewController.swift */,
+				144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */,
+			);
+			name = "View controllers";
+			sourceTree = "<group>";
+		};
 		14F750BD1C6B8289005EED40 = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +88,9 @@
 		14F750C81C6B8289005EED40 /* RxMoyaExample */ = {
 			isa = PBXGroup;
 			children = (
+				144106BB1C6CD05400CD6F15 /* View controllers */,
+				144106BA1C6CCB4100CD6F15 /* Networking */,
 				14F750C91C6B8289005EED40 /* AppDelegate.swift */,
-				14F750CB1C6B8289005EED40 /* ViewController.swift */,
 				14F750CD1C6B8289005EED40 /* Main.storyboard */,
 				14F750D01C6B8289005EED40 /* Assets.xcassets */,
 				14F750D21C6B8289005EED40 /* LaunchScreen.storyboard */,
@@ -210,8 +238,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F750CC1C6B8289005EED40 /* ViewController.swift in Sources */,
+				14F750CC1C6B8289005EED40 /* IssueListViewController.swift in Sources */,
+				144106B91C6CC75F00CD6F15 /* RespositoryEntity.swift in Sources */,
+				144106B71C6CC62D00CD6F15 /* GithubEndpoint.swift in Sources */,
 				14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */,
+				144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */,
+				144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
