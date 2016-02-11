@@ -29,7 +29,7 @@ class IssueListViewController: UIViewController {
     func setupRx() {
         provider = RxMoyaProvider<GitHub>()
         issueTrackerModel = IssueTrackerModel(provider: provider, repositoryName: getLatestRepositoryName())
-        _ = issueTrackerModel
+        issueTrackerModel
             .trackIssues()
             .bindTo(tableView.rx_itemsWithCellFactory) { (tv, row, item) in
                 let cell = tv.dequeueReusableCellWithIdentifier("issueCell", forIndexPath: NSIndexPath(forRow: row, inSection: 0))
@@ -43,7 +43,7 @@ class IssueListViewController: UIViewController {
     func getLatestRepositoryName() -> Observable<String> {
         return searchBar
             .rx_text
-            .throttle(0.3, scheduler: MainScheduler.instance)
+            .throttle(0.5, scheduler: MainScheduler.instance)
             .filter { $0.characters.count > 0 }
             .distinctUntilChanged()
     }

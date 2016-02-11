@@ -27,10 +27,12 @@ struct IssueTrackerModel: IssueTrackerModelType {
     func trackIssues() -> Observable<[Issue]> {
         return repositoryName
             .observeOn(MainScheduler.instance)
-            .flatMap { name in
+            .flatMap { name -> Observable<Repository> in
+                print("Name: \(name)")
                 return self.findRepository(name)
             }
-            .flatMap { repository in
+            .flatMap { repository -> Observable<[Issue]> in
+                print("Repository: \(repository.fullName)")
                 return self.findIssues(repository)
             }
     }
