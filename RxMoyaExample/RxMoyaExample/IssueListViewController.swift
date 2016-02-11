@@ -19,6 +19,7 @@ class IssueListViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     var provider: RxMoyaProvider<GitHub>!
+    var issueTrackerModel: IssueTrackerModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,17 +27,24 @@ class IssueListViewController: UIViewController {
     }
     
     func setupRx() {
-//        let endpointClosure: GitHub -> Endpoint<GitHub> = { (target: GitHub) -> Endpoint<GitHub> in
-//            return Endpoint<GitHub>(URL: self.url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
-//        }
-//        provider = RxMoyaProvider(endpointClosure: endpointClosure)
-        provider = RxMoyaProvider()
+        provider = RxMoyaProvider<GitHub>()
+        issueTrackerModel = IssueTrackerModel(provider: provider, repositoryName: getLatestRepositoryName())
+        _ = issueTrackerModel
+            .trackIssues()
+            .bindTo(tableView.rx_itemsWithCellFactory) { (tv, row, item) in
+                let cell = tv.dequeueReusableCellWithIdentifier("issueCell", forIndexPath: NSIndexPath(forRow: row, inSection: 0))
+                cell.textLabel?.text = item.title
+                
+                return cell
+            }
+            .addDisposableTo(disposeBag)
     }
     
     func getLatestRepositoryName() -> Observable<String> {
         return searchBar
             .rx_text
             .throttle(0.3, scheduler: MainScheduler.instance)
+            .filter { $0.characters.count > 0 }
             .distinctUntilChanged()
     }
 

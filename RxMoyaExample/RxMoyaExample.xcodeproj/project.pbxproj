@@ -11,6 +11,7 @@
 		144106B91C6CC75F00CD6F15 /* RespositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */; };
 		144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */; };
 		144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */; };
+		144106C11C6CE00400CD6F15 /* IssueEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106C01C6CE00400CD6F15 /* IssueEntity.swift */; };
 		14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750C91C6B8289005EED40 /* AppDelegate.swift */; };
 		14F750CC1C6B8289005EED40 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750CB1C6B8289005EED40 /* IssueListViewController.swift */; };
 		14F750CF1C6B8289005EED40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F750CD1C6B8289005EED40 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespositoryEntity.swift; sourceTree = "<group>"; };
 		144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
 		144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTrackerModel.swift; sourceTree = "<group>"; };
+		144106C01C6CE00400CD6F15 /* IssueEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEntity.swift; sourceTree = "<group>"; };
 		14F750C61C6B8289005EED40 /* RxMoyaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMoyaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F750C91C6B8289005EED40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14F750CB1C6B8289005EED40 /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */,
 				144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */,
 				144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */,
+				144106C01C6CE00400CD6F15 /* IssueEntity.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				TargetAttributes = {
 					14F750C51C6B8289005EED40 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 53CHNC6J63;
 					};
 				};
 			};
@@ -243,6 +247,7 @@
 				144106B71C6CC62D00CD6F15 /* GithubEndpoint.swift in Sources */,
 				14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */,
 				144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */,
+				144106C11C6CE00400CD6F15 /* IssueEntity.swift in Sources */,
 				144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,10 +360,13 @@
 			baseConfigurationReference = 2B6581D9EE01627A578F0053 /* Pods-RxMoyaExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RxMoyaExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxMoyaExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -367,10 +375,13 @@
 			baseConfigurationReference = 12F05D8CBEB80C80C97FE2CD /* Pods-RxMoyaExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RxMoyaExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxMoyaExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

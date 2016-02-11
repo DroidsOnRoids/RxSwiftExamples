@@ -16,10 +16,10 @@ private extension String {
 }
 
 enum GitHub {
-    case Zen
     case UserProfile(username: String)
     case Repos(username: String)
     case Repo(fullName: String)
+    case Issues(repositoryFullName: String)
 }
 
 extension GitHub: TargetType {
@@ -28,12 +28,12 @@ extension GitHub: TargetType {
         switch self {
         case .Repos(let name):
             return "/users/\(name.URLEscapedString)/repos"
-        case .Zen:
-            return "/zen"
         case .UserProfile(let name):
             return "/users/\(name.URLEscapedString)"
         case .Repo(let name):
-            return "/repos/\(name.URLEscapedString)"
+            return "/repos/\(name)"
+        case .Issues(let repositoryName):
+            return "/repos/\(repositoryName)/issues"
         }
     }
     var method: Moya.Method {
@@ -46,12 +46,12 @@ extension GitHub: TargetType {
         switch self {
         case .Repos(_):
             return "{{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}}}".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .Zen:
-            return "Half measures are as bad as nothing at all.".dataUsingEncoding(NSUTF8StringEncoding)!
         case .UserProfile(let name):
             return "{\"login\": \"\(name)\", \"id\": 100}".dataUsingEncoding(NSUTF8StringEncoding)!
         case .Repo(_):
             return "{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}".dataUsingEncoding(NSUTF8StringEncoding)!
+        case .Issues(_):
+            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }
 }
