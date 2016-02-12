@@ -70,7 +70,6 @@
                         <outlet property="searchBar" destination="X49-SY-dRa" id="JLf-lv-EpX"/>
                         <outlet property="searchDisplayController" destination="9kG-tt-i00" id="UdF-dd-DXg"/>
                         <outlet property="tableView" destination="1dB-GD-JOE" id="6H8-7k-bNW"/>
-                        <segue destination="Akj-Ap-MSz" kind="show" identifier="showIssueDetailSegue" id="1mQ-Vv-thK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdn-gQ-QVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,24 +83,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1201" y="1124"/>
-        </scene>
-        <!--Issue detail-->
-        <scene sceneID="P5q-3a-xC9">
-            <objects>
-                <viewController title="Issue detail" id="Akj-Ap-MSz" customClass="IssueDetailsViewController" customModule="RxMoyaExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="q89-Jk-cnF"/>
-                        <viewControllerLayoutGuide type="bottom" id="hRG-bG-Mnw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YCx-qM-FRs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d2l-sY-eUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1902" y="1124"/>
         </scene>
     </scenes>
 </document>

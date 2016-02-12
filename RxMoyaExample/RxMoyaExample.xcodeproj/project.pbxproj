@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		144106B71C6CC62D00CD6F15 /* GithubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */; };
 		144106B91C6CC75F00CD6F15 /* RespositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */; };
-		144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */; };
 		144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */; };
 		144106C11C6CE00400CD6F15 /* IssueEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144106C01C6CE00400CD6F15 /* IssueEntity.swift */; };
 		14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F750C91C6B8289005EED40 /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 		12F05D8CBEB80C80C97FE2CD /* Pods-RxMoyaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMoyaExample/Pods-RxMoyaExample.release.xcconfig"; sourceTree = "<group>"; };
 		144106B61C6CC62D00CD6F15 /* GithubEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubEndpoint.swift; sourceTree = "<group>"; };
 		144106B81C6CC75F00CD6F15 /* RespositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespositoryEntity.swift; sourceTree = "<group>"; };
-		144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailsViewController.swift; sourceTree = "<group>"; };
 		144106BE1C6CD66600CD6F15 /* IssueTrackerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTrackerModel.swift; sourceTree = "<group>"; };
 		144106C01C6CE00400CD6F15 /* IssueEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEntity.swift; sourceTree = "<group>"; };
 		14F750C61C6B8289005EED40 /* RxMoyaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMoyaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				14F750CB1C6B8289005EED40 /* IssueListViewController.swift */,
-				144106BC1C6CD07400CD6F15 /* IssueDetailsViewController.swift */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 				14F750CA1C6B8289005EED40 /* AppDelegate.swift in Sources */,
 				144106BF1C6CD66600CD6F15 /* IssueTrackerModel.swift in Sources */,
 				144106C11C6CE00400CD6F15 /* IssueEntity.swift in Sources */,
-				144106BD1C6CD07400CD6F15 /* IssueDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
