@@ -44,6 +44,10 @@ struct IssueTrackerModel: IssueTrackerModelType {
             .request(GitHub.Issues(repositoryFullName: repository.fullName))
             .debug()
             .mapArray(Issue.self)
+            .catchError { error in
+                print("Error! \(error)")                
+                return Observable.just([])
+            }
     }
     
     internal func findRepository(name: String) -> Observable<Repository> {
@@ -51,6 +55,10 @@ struct IssueTrackerModel: IssueTrackerModelType {
             .request(GitHub.Repo(fullName: name))
             .debug()
             .mapObject(Repository.self)
+            .catchError { error in
+                print("Error! \(error)")
+                return Observable.never()
+            }
     }
     
 }
