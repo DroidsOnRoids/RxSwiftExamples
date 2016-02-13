@@ -7,11 +7,11 @@ should be commented as well. <br />
 Also, please remember that this is work in progress. ✌️
 
 ## List of examples
-- Example of using [RxSwift](https://github.com/ReactiveX/RxSwift). This should be the start.
+- Example of using [RxSwift](https://github.com/ReactiveX/RxSwift) - [RxActionExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxSwiftExample). This should be the start.
 - Example of using [Action](https://github.com/RxSwiftCommunity/Action) - [RxActionExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxActionExample).
 - Example of using [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire/) - [RxAlamofireExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxAlamofireExample).
 - Example of using [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources/) - [RxDataSourcesExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxDataSourcesExample).
-- Example of using [Moya](https://github.com/RxSwiftCommunity/RxDataSources/) with `RxSwift` - [RxMoyaExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMoyaExample).
+- Example of using [Moya](https://github.com/Moya/Moya/) with `RxSwift` - [RxMoyaExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMoyaExample).
 - Example of using [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/) - [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxViewModelExample).
 
 ## Author
