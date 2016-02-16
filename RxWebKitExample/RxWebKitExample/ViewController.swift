@@ -19,16 +19,11 @@ class ViewController: UIViewController {
     
     var webView: WKWebView!
     let disposeBag = DisposeBag()
-    var currentRequest: NSURLRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupRx()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,19 +56,16 @@ class ViewController: UIViewController {
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { NSURL(string: $0) != nil }
-            .map { NSURL(string: $0) }
-            .subscribeNext({ (url: NSURL?) -> Void in
-                if let url = url {
-                    self.currentRequest = NSURLRequest(URL: url)
-                    self.webView.loadRequest(self.currentRequest!)
-                }
+            .map { NSURL(string: $0)! }
+            .subscribeNext({ url in
+                self.webView.loadRequest(NSURLRequest(URL: url))
             })
             .addDisposableTo(disposeBag)
         
         webView.rx_URL
             .subscribeNext { url in
-                print("URL: \(url)")
                 self.searchBar.text = url?.absoluteString
+                print("URL: \(url)")                
             }
             .addDisposableTo(disposeBag)
         
