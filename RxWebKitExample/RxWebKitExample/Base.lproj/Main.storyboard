@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Px7-CQ-RXQ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mini WebBrowser by RxSwift-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RxWebKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="WdQ-ci-AJl">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYW-er-zV7">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DYW-er-zV7" secondAttribute="trailing" id="1x0-vO-zRP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DYW-er-zV7" secondAttribute="trailing" id="2C3-ln-syP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DYW-er-zV7" secondAttribute="bottom" id="Agg-qj-k8c"/>
+                            <constraint firstAttribute="trailing" secondItem="WdQ-ci-AJl" secondAttribute="trailing" id="Czj-yp-afG"/>
+                            <constraint firstItem="DYW-er-zV7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fqw-7m-8Cp"/>
+                            <constraint firstItem="WdQ-ci-AJl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Uoz-tM-fVd"/>
+                            <constraint firstItem="DYW-er-zV7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="elv-bc-YG7"/>
+                            <constraint firstItem="DYW-er-zV7" firstAttribute="top" secondItem="WdQ-ci-AJl" secondAttribute="bottom" id="iXH-Sc-xcm"/>
+                            <constraint firstItem="WdQ-ci-AJl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ufI-S3-yBp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2C3-ln-syP"/>
+                                <exclude reference="Fqw-7m-8Cp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mini WebBrowser by RxSwift" id="2ga-c0-I8F"/>
+                    <connections>
+                        <outlet property="searchBar" destination="WdQ-ci-AJl" id="Jvf-im-7hO"/>
+                        <outlet property="webViewWrapper" destination="DYW-er-zV7" id="dTe-x6-CRV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="339"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eo3-xD-JoY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Px7-CQ-RXQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIf-33-PlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5Ok-5J-UhA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSc-lA-Ina" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="331" y="339"/>
+        </scene>
+    </scenes>
+</document>
