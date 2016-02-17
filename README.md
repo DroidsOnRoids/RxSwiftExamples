@@ -13,10 +13,11 @@ Also, please remember that this is work in progress. ✌️
 - Example of using [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources/) - [RxDataSourcesExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxDataSourcesExample).
 - Example of using [Moya](https://github.com/Moya/Moya/) with `RxSwift` - [RxMoyaExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMoyaExample).
 - Example of using [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/) - [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxViewModelExample).
+- Example of using [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit) -
+[RxWebKitExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxWebKitExample).
 
 ## TODO
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
-- [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit)
 - [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView)
 
 ## Author
