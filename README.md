@@ -15,10 +15,11 @@ Also, please remember that this is work in progress. ✌️
 - Example of using [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/) - [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxViewModelExample).
 - Example of using [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit) -
 [RxWebKitExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxWebKitExample).
+- Example of using [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView) -
+[RxMKMapViewExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMKMapViewExample).
 
 ## TODO
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
-- [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView)
 
 ## Author
 
