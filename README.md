@@ -2,8 +2,7 @@
 
 Here you have set of examples with usage of [RxSwift](https://github.com/ReactiveX/RxSwift) and modules from [RxSwiftCommunity](https://github.com/RxSwiftCommunity).
 It is written to help starting off with `RxSwift` and show that its really fun.
-Every example is commented with basic idea of usage in the main controller and every confusing line
-should be commented as well. <br />
+Every example <i>should be</i> commented (if it's not, I'm working on it) with basic idea of usage in the main controller and every confusing line should be commented as well. <br />
 Also, please remember that this is work in progress. ✌️
 
 ## List of examples
@@ -20,6 +19,7 @@ Also, please remember that this is work in progress. ✌️
 
 ## TODO
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
+- [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
 
 ## Author
 
