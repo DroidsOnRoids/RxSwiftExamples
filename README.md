@@ -20,6 +20,7 @@ Also, please remember that this is work in progress. ✌️
 ## TODO
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
 - [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
+- [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
 
 ## Author
 
