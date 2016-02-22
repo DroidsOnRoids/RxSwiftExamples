@@ -22,6 +22,11 @@ Also, please remember that this is work in progress. ✌️
 - [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
 - [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
 
+## Worth mentioning
+- [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
+- [RxSnippets](https://github.com/RxSwiftCommunity/RxSnippets)
+- [RxSugar](https://github.com/RxSugar/RxSugar)
+
 ## Author
 
 Sunshinejr, thesunshinejr@gmail.com
