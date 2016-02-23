@@ -29,7 +29,7 @@ Also, please remember that this is work in progress. ✌️
 
 ## Author
 
-Sunshinejr, thesunshinejr@gmail.com
+Sunshinejr, thesunshinejr@gmail.com, <a href="https://twitter.com/thesunshinejr">@thesunshinejr</a>
 
 ## License
 
