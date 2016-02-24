@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--City Search-->
+        <!--City Searcher-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RxSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                             <constraint firstAttribute="trailing" secondItem="pI6-d9-YDp" secondAttribute="trailing" id="vq2-ka-W7N"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="City Search" id="Lqj-1Q-5Jn"/>
+                    <navigationItem key="navigationItem" title="City Searcher" id="Lqj-1Q-5Jn"/>
                     <connections>
                         <outlet property="searchBar" destination="shs-dJ-RkB" id="qbP-vO-k14"/>
                         <outlet property="tableView" destination="pI6-d9-YDp" id="0I6-n1-xps"/>

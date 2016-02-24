@@ -27,8 +27,8 @@
 //
 
 import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var shownCities = [String]() // Data source for UITableView
-    var allCities = [String]() // Our mocked API data source
-    let disposeBag = DisposeBag() // Bag of disposables to release them after view is released (protect against retain cycle)
+    let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"] // Our mocked API data source
+    let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,6 @@ class ViewController: UIViewController {
     
     func setup() {
         tableView.dataSource = self
-        allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
         searchBar
             .rx_text // Observable property thanks to RxCocoa
             .throttle(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
