@@ -71,6 +71,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cityPrototypeCell", forIndexPath: indexPath)
         cell.textLabel?.text = shownCities[indexPath.row]
+        
         return cell
     }
     
