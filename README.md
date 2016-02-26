@@ -5,27 +5,11 @@ It is written to help starting off with `RxSwift` and show that its really fun.
 Every example <i>should be</i> commented (if it's not, I'm working on it) with basic idea of usage in the main controller and every confusing line should be commented as well. <br />
 Also, please remember that this is work in progress. ✌️
 
-## List of examples
-- Example of using [RxSwift](https://github.com/ReactiveX/RxSwift) - [RxSwiftExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxSwiftExample). This should be the start.
-- Example of using [Action](https://github.com/RxSwiftCommunity/Action) - [RxActionExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxActionExample).
-- Example of using [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire/) - [RxAlamofireExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxAlamofireExample).
-- Example of using [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources/) - [RxDataSourcesExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxDataSourcesExample).
-- Example of using [Moya](https://github.com/Moya/Moya/) with `RxSwift` - [RxMoyaExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMoyaExample).
-- Example of using [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/) - [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxViewModelExample).
-- Example of using [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit) -
-[RxWebKitExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxWebKitExample).
-- Example of using [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView) -
-[RxMKMapViewExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMKMapViewExample).
-
-## TODO
-- [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
-- [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
-- [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
-
-## Worth mentioning
-- [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
-- [RxSnippets](https://github.com/RxSwiftCommunity/RxSnippets)
-- [RxSugar](https://github.com/RxSugar/RxSugar)
+## Table of contents
+1. `Libraries Usage` consists of examples of specific libraries, with the basic one `RxSwiftExample` and
+others from the community. If you have any library that is interesting, please make an issue or pull request
+with adding the library to Todolist.
+2. `Simple Apps` consists of apps that are written with `RxSwift`, but also with usage of multiple other libraries or without any - it's kinda random. It is more focused on getting the App done rather than use specific library.
 
 ## Author
 
