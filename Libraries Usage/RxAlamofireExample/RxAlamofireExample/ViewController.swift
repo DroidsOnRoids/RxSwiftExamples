@@ -10,14 +10,14 @@
 //  through GitHub API. Lets split it for few steps.
 //  First step would be to setup RxSwift so we can observe text
 //  from UISearchBar and get the updates. When we get the update,
-//  we have to make sure we are not spamming API. So we will make 
+//  we have to make sure we are not spamming API. So we will make
 //  use of throttle(_:scheduler) and distinctUntilChanged(). Also
 //  remember to use it in the same order as in the example (to make
 //  sure you get updates from the main thread always, because
 //  otherwise distinct might not work correctly). Then the next step
 //  would be to get the actual query from UISearchBar and now, that
-//  we know that we will not spam API, we can make a Alamofire 
-//  request. To do it, we will also use RxSwift, now with the 
+//  we know that we will not spam API, we can make a Alamofire
+//  request. To do it, we will also use RxSwift, now with the
 //  RxAlamofire wrapper. It makes using Alamofire nice and clean,
 //  as you can see in the code. We will make a requst to GitHub
 //  API and fetch the request for given username. To parse json
@@ -32,7 +32,7 @@ import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -55,33 +55,35 @@ class ViewController: UIViewController {
         setupRx()
         setupUI()
     }
-
+    
     func setupRx() {
         searchBar.rx_text
             .filter { $0.characters.count > 0 }
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribeNext { text in
+            .doOn(onNext: { text in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-                RxAlamofire
+            })
+            .flatMapLatest { text in
+                return RxAlamofire
                     .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
                     .observeOn(MainScheduler.instance)
                     .debug()
-                    .subscribe(
-                        onNext: { (response, json) in
-                            if let repos = Mapper<Repository>().mapArray(json) {
-                                self.repos = repos
-                            } else {
-                                self.repos = []
-                            }
-                        }, onError: { (error) in
-                            self.repos = []
-                        }, onCompleted: { _ in
-                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                        }, onDisposed: nil
-                    )
-                    .addDisposableTo(self.disposeBag)
             }
+            .doOn(onNext: { text in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            })
+            .subscribe(
+                onNext: { (response, json) in
+                    if let repos = Mapper<Repository>().mapArray(json) {
+                        self.repos = repos
+                    } else {
+                        self.repos = []
+                    }
+                }, onError: { (error) in
+                    self.repos = []
+                }
+            )
             .addDisposableTo(disposeBag)
     }
     
@@ -120,7 +122,7 @@ class ViewController: UIViewController {
             self.view.updateConstraints()
         }
     }
-
+    
     func tableTapped(recognizer: UITapGestureRecognizer) {
         let location = recognizer.locationInView(tableView)
         let path = tableView.indexPathForRowAtPoint(location)
@@ -150,4 +152,3 @@ extension ViewController: UITableViewDataSource {
     }
     
 }
-
