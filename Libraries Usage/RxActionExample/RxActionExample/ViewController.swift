@@ -43,13 +43,14 @@ class ViewController: UIViewController {
     }
     
     func setupRX() {
-        let validUsername = formFields
+        let validUsername = formFields // take array of inputs
             .map { input in
-                input.rx_text.map { $0.characters.count > 0 }
-            }
-            .combineLatest { (filters) -> Bool in
-                return filters.filter { return $0 }.count == filters.count
+                input.rx_text.map { $0.characters.count > 0 } // map them into array of Observable<Bool>
+            } // this allows us to use combineLatest, which fires up whenever any of the observables emits a signal
+            .combineLatest { filters -> Bool in
+                return filters.filter { $0 }.count == filters.count // if every input has length > 0, emit true
         }
+        
         let action = Action<Void, Void>(enabledIf: validUsername) { input in
             let alert = UIAlertController(title: "Wooo!", message: "Registration completed!", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
