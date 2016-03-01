@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141A13D61C8452210053E497 /* CalculatorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A13D51C8452210053E497 /* CalculatorCollectionView.swift */; };
 		1421FCC11C80992C005CC696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421FCC01C80992C005CC696 /* AppDelegate.swift */; };
 		1421FCC31C80992C005CC696 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421FCC21C80992C005CC696 /* ViewController.swift */; };
 		1421FCC61C80992C005CC696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1421FCC41C80992C005CC696 /* Main.storyboard */; };
 		1421FCC81C80992C005CC696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1421FCC71C80992C005CC696 /* Assets.xcassets */; };
 		1421FCCB1C80992C005CC696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1421FCC91C80992C005CC696 /* LaunchScreen.storyboard */; };
+		14B8D7161C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */; };
+		14B8D7181C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7171C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift */; };
+		14B8D71A1C85DA4200AE97A6 /* CalculatorResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7191C85DA4200AE97A6 /* CalculatorResultsViewModel.swift */; };
 		A6D6E009FCA18462197CA877 /* Pods_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EEE4A932B32117C95817D5 /* Pods_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141A13D51C8452210053E497 /* CalculatorCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorCollectionView.swift; path = Views/CalculatorCollectionView/CalculatorCollectionView.swift; sourceTree = "<group>"; };
 		1421FCBD1C80992C005CC696 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1421FCC01C80992C005CC696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1421FCC21C80992C005CC696 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +28,9 @@
 		1421FCC71C80992C005CC696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1421FCCA1C80992C005CC696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1421FCCC1C80992C005CC696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorCollectionViewCell.swift; path = Views/CalculatorCollectionView/Views/CalculatorCollectionViewCell.swift; sourceTree = "<group>"; };
+		14B8D7171C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorCollectionViewModel.swift; path = Views/CalculatorCollectionView/ViewModels/CalculatorCollectionViewModel.swift; sourceTree = "<group>"; };
+		14B8D7191C85DA4200AE97A6 /* CalculatorResultsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorResultsViewModel.swift; path = Views/CalculatorCollectionView/ViewModels/CalculatorResultsViewModel.swift; sourceTree = "<group>"; };
 		2772E4A149A4450E24E0340D /* Pods-Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calculator/Pods-Calculator.release.xcconfig"; sourceTree = "<group>"; };
 		28EEE4A932B32117C95817D5 /* Pods_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD8507787A474A2AA858AE3 /* Pods-Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calculator/Pods-Calculator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,8 +115,28 @@
 		1421FCD61C80B0E8005CC696 /* CalculatorCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				14B8D7131C84A52800AE97A6 /* ViewModels */,
+				14B8D7141C85D02C00AE97A6 /* Views */,
+				141A13D51C8452210053E497 /* CalculatorCollectionView.swift */,
 			);
 			name = CalculatorCollectionView;
+			sourceTree = "<group>";
+		};
+		14B8D7131C84A52800AE97A6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				14B8D7171C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift */,
+				14B8D7191C85DA4200AE97A6 /* CalculatorResultsViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		14B8D7141C85D02C00AE97A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		64D99AD2DFAD8FCBD42269A4 /* Pods */ = {
@@ -250,8 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B8D71A1C85DA4200AE97A6 /* CalculatorResultsViewModel.swift in Sources */,
+				14B8D7181C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift in Sources */,
 				1421FCC31C80992C005CC696 /* ViewController.swift in Sources */,
 				1421FCC11C80992C005CC696 /* AppDelegate.swift in Sources */,
+				14B8D7161C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift in Sources */,
+				141A13D61C8452210053E497 /* CalculatorCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

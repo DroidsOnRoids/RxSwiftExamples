@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Calculator-->
@@ -17,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZgP-Pf-MLC">
-                                <rect key="frame" x="20" y="84" width="560" height="496"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZgP-Pf-MLC" customClass="CalculatorCollectionView" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="133" width="560" height="447"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dfg-bE-mdY">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -26,27 +28,58 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calculatorCell" id="rHN-WU-EhO">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calculatorCell" id="rHN-WU-EhO" customClass="CalculatorCollectionViewCell" customModule="Calculator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdv-4Q-0VZ">
+                                                    <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Gdv-4Q-0VZ" firstAttribute="centerY" secondItem="rHN-WU-EhO" secondAttribute="centerY" id="4Yr-nG-tUs"/>
+                                            <constraint firstItem="Gdv-4Q-0VZ" firstAttribute="centerX" secondItem="rHN-WU-EhO" secondAttribute="centerX" id="MLH-Q6-yDX"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Gdv-4Q-0VZ" id="YOi-0k-eiN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aw-sX-qUx">
+                                <rect key="frame" x="20" y="83" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Ao-wn-Eex"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9aw-sX-qUx" secondAttribute="trailing" id="521-v3-Dkz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9aw-sX-qUx" secondAttribute="leading" id="Eqa-Ni-k0f"/>
                             <constraint firstAttribute="trailing" secondItem="ZgP-Pf-MLC" secondAttribute="trailing" constant="20" id="HRx-gQ-TNz"/>
-                            <constraint firstItem="ZgP-Pf-MLC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="nX9-Nc-p6N"/>
+                            <constraint firstItem="ZgP-Pf-MLC" firstAttribute="top" secondItem="9aw-sX-qUx" secondAttribute="bottom" constant="20" id="KoY-O3-9wa"/>
+                            <constraint firstItem="9aw-sX-qUx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="19" id="TGf-va-bb7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZgP-Pf-MLC" secondAttribute="bottom" constant="20" id="psw-EP-ea6"/>
                             <constraint firstItem="ZgP-Pf-MLC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="qKu-7U-NLU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="fPC-58-yxN"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ZgP-Pf-MLC" id="nG8-lj-sI2"/>
+                        <outlet property="resultLabel" destination="9aw-sX-qUx" id="HVT-xB-Wdf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

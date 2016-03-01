@@ -10,8 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: CalculatorCollectionView!
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    var collectionViewModel: CalculatorCollectionViewModel!
+    var resultsViewModel: CalculatorResultsViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
+        collectionViewModel = CalculatorCollectionViewModel()
+        resultsViewModel = CalculatorResultsViewModel()
     }
 
 }
