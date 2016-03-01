@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -15,6 +17,7 @@ class ViewController: UIViewController {
     
     var collectionViewModel: CalculatorCollectionViewModel!
     var resultsViewModel: CalculatorResultsViewModel!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,14 @@ class ViewController: UIViewController {
     func setup() {
         collectionViewModel = CalculatorCollectionViewModel()
         resultsViewModel = CalculatorResultsViewModel()
+        
+        collectionView
+            .rx_itemSelected
+            .map { self.collectionView.values[$0.row].toOperation() }
+            .subscribeNext { operation in
+                print(operation)
+            }
+            .addDisposableTo(disposeBag)
     }
 
 }

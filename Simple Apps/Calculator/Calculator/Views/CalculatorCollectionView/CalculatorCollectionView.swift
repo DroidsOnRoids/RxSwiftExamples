@@ -12,6 +12,7 @@ import UIKit
 class CalculatorCollectionView: UICollectionView {
 
     let calculatorCellIdentifier = "calculatorCell"
+    let values: [String] = ["+", "-", "%", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "="]
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,12 +34,12 @@ class CalculatorCollectionView: UICollectionView {
 extension CalculatorCollectionView: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return values.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(calculatorCellIdentifier, forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.blueColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(calculatorCellIdentifier, forIndexPath: indexPath) as! CalculatorCollectionViewCell
+        cell.titleLabel.text = values[indexPath.row]
         
         return cell
     }
@@ -48,6 +49,6 @@ extension CalculatorCollectionView: UICollectionViewDataSource {
 extension CalculatorCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let size = CGRectGetWidth(frame) / 3.3
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: size / 2.0)
     }
 }

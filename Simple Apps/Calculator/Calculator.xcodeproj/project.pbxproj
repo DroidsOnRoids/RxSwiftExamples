@@ -16,6 +16,8 @@
 		14B8D7161C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */; };
 		14B8D7181C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7171C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift */; };
 		14B8D71A1C85DA4200AE97A6 /* CalculatorResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7191C85DA4200AE97A6 /* CalculatorResultsViewModel.swift */; };
+		14B8D7281C85E20A00AE97A6 /* CalculatorOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7251C85E20A00AE97A6 /* CalculatorOperationModel.swift */; };
+		14B8D7291C85E20A00AE97A6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D7271C85E20A00AE97A6 /* Currency.swift */; };
 		A6D6E009FCA18462197CA877 /* Pods_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EEE4A932B32117C95817D5 /* Pods_Calculator.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorCollectionViewCell.swift; path = Views/CalculatorCollectionView/Views/CalculatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		14B8D7171C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorCollectionViewModel.swift; path = Views/CalculatorCollectionView/ViewModels/CalculatorCollectionViewModel.swift; sourceTree = "<group>"; };
 		14B8D7191C85DA4200AE97A6 /* CalculatorResultsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorResultsViewModel.swift; path = Views/CalculatorCollectionView/ViewModels/CalculatorResultsViewModel.swift; sourceTree = "<group>"; };
+		14B8D7251C85E20A00AE97A6 /* CalculatorOperationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorOperationModel.swift; sourceTree = "<group>"; };
+		14B8D7271C85E20A00AE97A6 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		2772E4A149A4450E24E0340D /* Pods-Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calculator/Pods-Calculator.release.xcconfig"; sourceTree = "<group>"; };
 		28EEE4A932B32117C95817D5 /* Pods_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD8507787A474A2AA858AE3 /* Pods-Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Calculator/Pods-Calculator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		1421FCD41C809AF5005CC696 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				14B8D7241C85E20A00AE97A6 /* CalculatorOperation */,
+				14B8D7261C85E20A00AE97A6 /* Currency */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -137,6 +143,24 @@
 				14B8D7151C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		14B8D7241C85E20A00AE97A6 /* CalculatorOperation */ = {
+			isa = PBXGroup;
+			children = (
+				14B8D7251C85E20A00AE97A6 /* CalculatorOperationModel.swift */,
+			);
+			name = CalculatorOperation;
+			path = Models/CalculatorOperation;
+			sourceTree = "<group>";
+		};
+		14B8D7261C85E20A00AE97A6 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				14B8D7271C85E20A00AE97A6 /* Currency.swift */,
+			);
+			name = Currency;
+			path = Models/Currency;
 			sourceTree = "<group>";
 		};
 		64D99AD2DFAD8FCBD42269A4 /* Pods */ = {
@@ -282,6 +306,8 @@
 				14B8D7181C85D5D300AE97A6 /* CalculatorCollectionViewModel.swift in Sources */,
 				1421FCC31C80992C005CC696 /* ViewController.swift in Sources */,
 				1421FCC11C80992C005CC696 /* AppDelegate.swift in Sources */,
+				14B8D7291C85E20A00AE97A6 /* Currency.swift in Sources */,
+				14B8D7281C85E20A00AE97A6 /* CalculatorOperationModel.swift in Sources */,
 				14B8D7161C85D05B00AE97A6 /* CalculatorCollectionViewCell.swift in Sources */,
 				141A13D61C8452210053E497 /* CalculatorCollectionView.swift in Sources */,
 			);
