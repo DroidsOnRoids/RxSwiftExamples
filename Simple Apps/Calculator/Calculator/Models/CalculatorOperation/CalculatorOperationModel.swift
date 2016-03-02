@@ -6,7 +6,7 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 
-enum CalculatorOperationModel {
+public enum CalculatorOperationModel: Equatable {
     
     case None
     case Add
@@ -20,29 +20,29 @@ enum CalculatorOperationModel {
     
 }
 
+public func ==(lhs: CalculatorOperationModel, rhs: CalculatorOperationModel) -> Bool {
+    return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
+}
+
+extension CalculatorOperationModel {
+    
+    func toReadableString() -> String {
+        return CalculatorHelper.operationToReadableString(self)
+    }
+    
+    // TODO: Implement merging operations
+    // It should have check for 2 numbers (merge), 2 operators(replace)
+    // also 2 different operations
+    func merge(operation: CalculatorOperationModel) -> [CalculatorOperationModel] {
+        return []
+    }
+    
+}
+
 extension String {
     
     func toOperation() -> CalculatorOperationModel {
-        switch self {
-        case "+":
-            return .Add
-        case "-":
-            return .Substract
-        case "C":
-            return .Clear
-        case ".":
-            return .Dot
-        case "=":
-            return .Equal
-        case "%":
-            return .Percent
-        default:
-            if let number = Int(self) where 0...9 ~= number {
-                return .Number(number)
-            }
-            
-            return .None
-        }
+        return CalculatorHelper.readableStringToOperation(self)
     }
     
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 
-enum Currency: String {
+public enum Currency: String {
     
     case GBP
     case USD

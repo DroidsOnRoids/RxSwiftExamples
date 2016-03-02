@@ -35,6 +35,7 @@ class ViewController: UIViewController {
                 print(operation)
             }
             .addDisposableTo(disposeBag)
+        
     }
 
 }
