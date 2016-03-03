@@ -11,12 +11,13 @@
 [RxMKMapViewExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMKMapViewExample).
 
 ## TODO
-- [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
-- [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
-- [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
-- [RxEasing](https://github.com/lintmachine/RxEasing)
 - [CollectionVariable](https://github.com/gitdoapp/CollectionVariable)
 - [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift)
+- [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
+- [RxEasing](https://github.com/lintmachine/RxEasing)
+- [RxMediaPicker](https://github.com/ruipfcosta/RxMediaPicker)
+- [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
+- [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
 
 ## Worth mentioning
 - [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
