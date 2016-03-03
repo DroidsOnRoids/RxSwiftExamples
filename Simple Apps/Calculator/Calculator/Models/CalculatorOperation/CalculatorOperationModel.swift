@@ -20,9 +20,23 @@ public enum CalculatorOperationModel: Equatable {
     
 }
 
+public enum SwitchVariant {
+    case AND
+    case OR
+    case PASS
+}
+
 public func ==(lhs: CalculatorOperationModel, rhs: CalculatorOperationModel) -> Bool {
     return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
 }
+
+infix operator ~!= { associativity left }
+
+public func ~!=<T:Equatable>(lhs: (T, T), rhs: (T, T, SwitchVariant)) -> Bool {
+    return true
+}
+
+
 
 extension CalculatorOperationModel {
     
@@ -34,7 +48,22 @@ extension CalculatorOperationModel {
     // It should have check for 2 numbers (merge), 2 operators(replace)
     // also 2 different operations
     func merge(operation: CalculatorOperationModel) -> [CalculatorOperationModel] {
-        return []
+        if case .Number(let number1) = self {
+            // We have min 1 number
+            if case .Number(let number2) = operation {
+                // Easy, 2 numbers merged to one
+                return [.Number(Int("\(number1)\(number2)")!)]
+            } else {
+                // First one is a number, second one is a operator, return it
+                return [self, operation]
+            }
+        } else if case .Number(_) = operation {
+            // One number, one operator
+            return [self, operation]
+        } else {
+            // We don't have numbers. Only operators. Easy
+            return [operation]
+        }
     }
     
 }
