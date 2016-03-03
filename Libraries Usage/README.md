@@ -14,6 +14,9 @@
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
 - [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
 - [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
+- [RxEasing](https://github.com/lintmachine/RxEasing)
+- [CollectionVariable](https://github.com/gitdoapp/CollectionVariable)
+- [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift)
 
 ## Worth mentioning
 - [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
