@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     var collectionViewModel: CalculatorCollectionViewModel!
-    var resultsViewModel: CalculatorResultsViewModel!
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -26,7 +25,6 @@ class ViewController: UIViewController {
     
     func setup() {
         collectionViewModel = CalculatorCollectionViewModel()
-        resultsViewModel = CalculatorResultsViewModel()
         
         collectionView
             .rx_itemSelected
