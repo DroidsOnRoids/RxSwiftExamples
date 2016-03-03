@@ -13,11 +13,13 @@
 ## TODO
 - [CollectionVariable](https://github.com/gitdoapp/CollectionVariable)
 - [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift)
+- [ReactiveCommander](https://github.com/pepibumur/ReactiveCommander)
 - [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth)
 - [RxEasing](https://github.com/lintmachine/RxEasing)
 - [RxMediaPicker](https://github.com/ruipfcosta/RxMediaPicker)
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
 - [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
+- [SugarRecord](https://github.com/pepibumur/SugarRecord)
 
 ## Worth mentioning
 - [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
