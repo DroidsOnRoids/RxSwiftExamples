@@ -60,9 +60,29 @@ public struct CalculatorHelper {
     }
     
     static func mergeOperations(operations: [CalculatorOperationModel]) -> [CalculatorOperationModel] {
+        guard operations.count > 1 else { return [] }
         
+        var returnOperations = operations
+        var lastIndex = 0
+        var currentIndex = 1
+        var mergedOperations: [CalculatorOperationModel]!
+
+        while currentIndex < returnOperations.count {
+            mergedOperations = returnOperations[lastIndex].merge(returnOperations[currentIndex])
+            while mergedOperations.count == 1 {
+                returnOperations.removeRange(Range<Int>(start: lastIndex, end: currentIndex))
+                returnOperations.insert(mergedOperations.first!, atIndex: lastIndex)
+                currentIndex = lastIndex + 1
+                if currentIndex >= returnOperations.count {
+                    break
+                }
+                mergedOperations = returnOperations[lastIndex].merge(returnOperations[currentIndex])
+            }
+            lastIndex = currentIndex
+            currentIndex = lastIndex + 1
+        }
         
-        return operations
+        return returnOperations
     }
     
     static func operationsToReadableString(operations: [CalculatorOperationModel]) -> String {
