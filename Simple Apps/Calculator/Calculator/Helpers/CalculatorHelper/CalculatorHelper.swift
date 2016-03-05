@@ -59,4 +59,18 @@ public struct CalculatorHelper {
         return dict.filter{ $0.1 == val }.map{ $0.0 }
     }
     
+    static func mergeOperations(operations: [CalculatorOperationModel]) -> [CalculatorOperationModel] {
+        
+        
+        return operations
+    }
+    
+    static func operationsToReadableString(operations: [CalculatorOperationModel]) -> String {
+        return ""
+    }
+    
+    static func mergeToReadableString(operations: [CalculatorOperationModel]) -> String {
+        return operationsToReadableString(mergeOperations(operations))
+    }
+    
 }

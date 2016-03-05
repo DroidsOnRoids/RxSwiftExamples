@@ -30,7 +30,7 @@ class CalculatorCollectionViewModel {
                 return newAcumulator
             }
             .map { operations in
-                return operations.mergeOperations()
+                return CalculatorHelper.mergeToReadableString(operations)
             }
             .bindTo(readableOperations)
             .addDisposableTo(disposeBag)

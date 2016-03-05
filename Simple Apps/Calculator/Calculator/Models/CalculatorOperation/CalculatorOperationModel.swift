@@ -60,15 +60,6 @@ extension CalculatorOperationModel {
     
 }
 
-extension CollectionType where Generator.Element == CalculatorOperationModel {
-    
-    func mergeOperations() -> [CalculatorOperationModel] {
-        guard let count = self.count as? Int where count > 1 else { return [] }
-        
-    }
-    
-}
-
 extension String {
     
     func toOperation() -> CalculatorOperationModel {
