@@ -29,11 +29,7 @@ class ViewController: UIViewController {
         collectionView
             .rx_itemSelected
             .map { self.collectionView.values[$0.row].toOperation() }
-            .subscribeNext { operation in
-                print(operation)
-            }
-            .addDisposableTo(disposeBag)
-        
+            .bindTo(collectionViewModel.operations)
     }
 
 }

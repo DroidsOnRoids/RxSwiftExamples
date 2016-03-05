@@ -30,14 +30,6 @@ public func ==(lhs: CalculatorOperationModel, rhs: CalculatorOperationModel) -> 
     return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
 }
 
-infix operator ~!= { associativity left }
-
-public func ~!=<T:Equatable>(lhs: (T, T), rhs: (T, T, SwitchVariant)) -> Bool {
-    return true
-}
-
-
-
 extension CalculatorOperationModel {
     
     func toReadableString() -> String {
@@ -64,6 +56,15 @@ extension CalculatorOperationModel {
             // We don't have numbers. Only operators. Easy
             return [operation]
         }
+    }
+    
+}
+
+extension CollectionType where Generator.Element == CalculatorOperationModel {
+    
+    func mergeOperations() -> [CalculatorOperationModel] {
+        guard let count = self.count as? Int where count > 1 else { return [] }
+        
     }
     
 }

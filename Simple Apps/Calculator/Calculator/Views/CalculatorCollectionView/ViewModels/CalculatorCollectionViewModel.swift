@@ -10,12 +10,12 @@ import RxSwift
 
 class CalculatorCollectionViewModel {
     
-    var operations: Variable<[CalculatorOperationModel]>
+    var operations: Variable<CalculatorOperationModel>
     var readableOperations: Variable<String>
     let disposeBag = DisposeBag()
     
     init() {
-        self.operations = Variable<[CalculatorOperationModel]>([])
+        self.operations = Variable<CalculatorOperationModel>(CalculatorOperationModel.None)
         self.readableOperations = Variable<String>("0")
         setup()
     }
@@ -23,14 +23,14 @@ class CalculatorCollectionViewModel {
     func setup() {
         operations
             .asObservable()
-            .scan([CalculatorOperationModel]()) { acumulator, values in
+            .filter { $0 != .None }
+            .scan([CalculatorOperationModel]()) { acumulator, value in
                 var newAcumulator = acumulator
-                values.forEach { newAcumulator.append($0) }
+                newAcumulator.append(value)
                 return newAcumulator
             }
             .map { operations in
-                // to readable and 
-                return ""
+                return operations.mergeOperations()
             }
             .bindTo(readableOperations)
             .addDisposableTo(disposeBag)
