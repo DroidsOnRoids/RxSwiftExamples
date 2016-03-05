@@ -70,7 +70,7 @@ public struct CalculatorHelper {
         while currentIndex < returnOperations.count {
             mergedOperations = returnOperations[lastIndex].merge(returnOperations[currentIndex])
             while mergedOperations.count == 1 {
-                returnOperations.removeRange(Range<Int>(start: lastIndex, end: currentIndex))
+                returnOperations.removeRange(Range<Int>(start: lastIndex, end: currentIndex+1))
                 returnOperations.insert(mergedOperations.first!, atIndex: lastIndex)
                 currentIndex = lastIndex + 1
                 if currentIndex >= returnOperations.count {
@@ -86,7 +86,7 @@ public struct CalculatorHelper {
     }
     
     static func operationsToReadableString(operations: [CalculatorOperationModel]) -> String {
-        return ""
+        return operations.map { operationToReadableString($0) }.reduce("", combine: +)
     }
     
     static func mergeToReadableString(operations: [CalculatorOperationModel]) -> String {

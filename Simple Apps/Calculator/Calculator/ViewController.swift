@@ -30,6 +30,7 @@ class ViewController: UIViewController {
             .rx_itemSelected
             .map { self.collectionView.values[$0.row].toOperation() }
             .bindTo(collectionViewModel.operations)
+            .addDisposableTo(disposeBag)
     }
 
 }
