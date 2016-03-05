@@ -31,6 +31,11 @@ class ViewController: UIViewController {
             .map { self.collectionView.values[$0.row].toOperation() }
             .bindTo(collectionViewModel.operations)
             .addDisposableTo(disposeBag)
+        collectionViewModel
+            .readableOperations
+            .asObservable()
+            .bindTo(resultLabel.rx_text)
+            .addDisposableTo(disposeBag)
     }
 
 }
