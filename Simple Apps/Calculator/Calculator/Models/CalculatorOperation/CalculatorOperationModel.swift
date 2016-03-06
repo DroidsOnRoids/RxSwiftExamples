@@ -20,12 +20,6 @@ public enum CalculatorOperationModel: Equatable {
     
 }
 
-public enum SwitchVariant {
-    case AND
-    case OR
-    case PASS
-}
-
 public func ==(lhs: CalculatorOperationModel, rhs: CalculatorOperationModel) -> Bool {
     return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
 }
@@ -36,10 +30,9 @@ extension CalculatorOperationModel {
         return CalculatorHelper.operationToReadableString(self)
     }
     
-    // TODO: Implement merging operations
-    // It should have check for 2 numbers (merge), 2 operators(replace)
-    // also 2 different operations
     func merge(operation: CalculatorOperationModel) -> [CalculatorOperationModel] {
+        // It could be less code for this part
+        // But I've found out that it was less readable
         if case .Number(let number1) = self {
             // We have min 1 number
             if case .Number(let number2) = operation {
@@ -58,6 +51,23 @@ extension CalculatorOperationModel {
         }
     }
     
+    func compute(number1: CalculatorOperationModel, operation: CalculatorOperationModel, number2: CalculatorOperationModel) -> CalculatorOperationModel {
+        guard case .Number(let digit1) = number1, .Number(let digit2) = number2 else {
+            return .None
+        }
+        
+        switch operation {
+        case .Add:
+            return .Number(digit1 + digit2)
+        case .Substract:
+            return .Number(digit1 - digit2)
+        case .Percent:
+            return .Number(digit1 % digit2)
+        default:
+            return .None
+        }
+        
+    }
 }
 
 extension String {

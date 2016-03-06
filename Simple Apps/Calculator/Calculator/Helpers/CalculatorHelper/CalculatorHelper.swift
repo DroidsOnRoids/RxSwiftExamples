@@ -67,6 +67,7 @@ public struct CalculatorHelper {
         var currentIndex = 1
         var mergedOperations: [CalculatorOperationModel]!
 
+        // merge operations
         while currentIndex < returnOperations.count {
             mergedOperations = returnOperations[lastIndex].merge(returnOperations[currentIndex])
             while mergedOperations.count == 1 {
@@ -82,7 +83,14 @@ public struct CalculatorHelper {
             currentIndex = lastIndex + 1
         }
         
+        // Now compute result if equal sign is given
+        
         return returnOperations
+    }
+    
+    static internal func compute(operations: [CalculatorOperationModel]) -> CalculatorOperationModel {
+        
+        return .Number(0)
     }
     
     static func operationsToReadableString(operations: [CalculatorOperationModel]) -> String {
