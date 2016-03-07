@@ -5,33 +5,37 @@
 //  Created by Lukasz Mroz on 09.02.2016.
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
+//  This ViewModel is made to extract the logic of creating UIColor based on center of a view.
+//  Every time new center is produced, we grab it and transform it to specifc UIColor. Then
+//  ViewController can use it to redraw the view.
+//
+
 
 import ChameleonFramework
 import Foundation
 import RxSwift
 import RxCocoa
-import RxViewModel
 
-class CircleViewModel: RxViewModel {
+class CircleViewModel {
     
-    var centerObservable = Variable<CGPoint?>(CGPointZero) // Create one variable that will be changed and observed
-    var backgroundColorObservable: Observable<UIColor> // Create observable that we will be changing based on center
+    var centerVariable = Variable<CGPoint?>(CGPointZero) // Create one variable that will be changed and observed
+    var backgroundColorObservable: Observable<UIColor>! // Create observable that will change backgroundColor based on center
     private let disposeBag = DisposeBag()
     
-    override init() {
-        backgroundColorObservable = Observable.never() // Just to init the variable and remove warning from Xcode
-        super.init()
-        
-        // When view is active & we get new center, map it to UIColor
-        backgroundColorObservable = Observable.of(didBecomeActive.map { _ in CGPoint() }, centerObservable.asObservable())
-            .merge()
-            .map { frame in
-                guard let frame = frame else { return UIColor.blackColor() }
+    init() {
+        setup()
+    }
+    
+    func setup() {
+        // When we get new center, emit new UIColor
+        backgroundColorObservable = centerVariable.asObservable()
+            .map { center in
+                guard let center = center else { return UIColor.blackColor() }
                 
-                let red: CGFloat = ((frame.x + frame.y) % 255.0) / 255.0
+                let red: CGFloat = ((center.x + center.y) % 255.0) / 255.0 // We just manipulate red, but you can do w/e
                 let green: CGFloat = 0.0
                 let blue: CGFloat = 0.0
-
+                
                 return UIColor.flatten(UIColor(red: red, green: green, blue: blue, alpha: 1.0))()
             }
     }
