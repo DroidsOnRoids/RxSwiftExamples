@@ -1,5 +1,5 @@
 ## List of examples
---
+- [Calculator](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Simple%20Apps/Calculator) - this one is not done and probably won't be done since it is already in RxExamples in RxSwift repository.
 
 ## TODO
 --
