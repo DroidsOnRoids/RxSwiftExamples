@@ -8,6 +8,9 @@
 //  This ViewModel is made to extract the logic of creating UIColor based on center of a view.
 //  Every time new center is produced, we grab it and transform it to specifc UIColor. Then
 //  ViewController can use it to redraw the view.
+//  
+//  If you want to try your Rx skills I'd suggest to add another observable with e.g. width/height that
+//  the ball could have change based on the center.
 //
 
 
