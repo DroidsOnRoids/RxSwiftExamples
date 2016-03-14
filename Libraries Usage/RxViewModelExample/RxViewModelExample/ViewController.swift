@@ -54,12 +54,19 @@ class ViewController: UIViewController {
 
         // Subscribe to backgroundObservable to get new colors from the ViewModel.
         circleViewModel.backgroundColorObservable
-            .subscribeNext({ (backgroundColor) in
+            .subscribeNext { [weak self] (backgroundColor) in
                 UIView.animateWithDuration(0.1) {
-                    self.circleView.backgroundColor = backgroundColor
-                    self.view.backgroundColor = UIColor.init(complementaryFlatColorOf: backgroundColor, withAlpha: 1.0)
+                    self?.circleView.backgroundColor = backgroundColor
+                    // Try to get complementary color for given background color
+                    let viewBackgroundColor = UIColor.init(complementaryFlatColorOf: backgroundColor, withAlpha: 1.0)
+                    // If it is different that the color
+                    if viewBackgroundColor != backgroundColor {
+                        // Assign it as a background color of the view
+                        // We only want different color to be able to see that circle in a view
+                        self?.view.backgroundColor = viewBackgroundColor
+                    }
                 }
-            })
+            }
             .addDisposableTo(disposeBag)
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "circleMoved:")

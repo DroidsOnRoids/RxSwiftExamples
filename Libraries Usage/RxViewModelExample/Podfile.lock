@@ -2,21 +2,18 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - RxCocoa (2.1.0):
-    - RxSwift (~> 2.0)
-  - RxSwift (2.1.0)
-  - RxViewModel (3.0.1):
-    - RxCocoa (~> 2.1.0)
-    - RxSwift (~> 2.1.0)
+  - RxCocoa (2.2.0):
+    - RxSwift (~> 2.2)
+  - RxSwift (2.2.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
-  - RxViewModel
+  - RxCocoa
+  - RxSwift
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
-  RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
-  RxViewModel: ffedfc3bfc6a6727e2e53cf6c733dbd5759c6f82
+  RxCocoa: 42efb7a7145a8d1d5878e94ce48a580d29e0c796
+  RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
 
 COCOAPODS: 0.39.0

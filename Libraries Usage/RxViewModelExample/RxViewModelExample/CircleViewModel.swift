@@ -33,7 +33,7 @@ class CircleViewModel {
         // When we get new center, emit new UIColor
         backgroundColorObservable = centerVariable.asObservable()
             .map { center in
-                guard let center = center else { return UIColor.blackColor() }
+                guard let center = center else { return UIColor.flatten(UIColor.blackColor())() }
                 
                 let red: CGFloat = ((center.x + center.y) % 255.0) / 255.0 // We just manipulate red, but you can do w/e
                 let green: CGFloat = 0.0
