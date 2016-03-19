@@ -4,7 +4,6 @@
 - Example of using [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire/) - [RxAlamofireExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxAlamofireExample).
 - Example of using [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources/) - [RxDataSourcesExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxDataSourcesExample).
 - Example of using [Moya](https://github.com/Moya/Moya/) with `RxSwift` - [RxMoyaExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxMoyaExample).
-- Example of using [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/) - [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxViewModelExample).
 - Example of using [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit) -
 [RxWebKitExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/RxWebKitExample).
 - Example of using [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView) -
@@ -20,6 +19,7 @@
 - [RxNimble](https://github.com/RxSwiftCommunity/RxNimble)
 - [RxOptional](https://github.com/RxSwiftCommunity/RxOptional)
 - [SugarRecord](https://github.com/pepibumur/SugarRecord)
+- [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel/)
 
 ## Worth mentioning
 - [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)

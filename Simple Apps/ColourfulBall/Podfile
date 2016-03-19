@@ -1,7 +1,7 @@
 platform :ios, '8.0'
 use_frameworks!
 
-target 'RxViewModelExample' do
+target 'ColourfulBall' do
 
 pod 'RxSwift'
 pod 'RxCocoa'

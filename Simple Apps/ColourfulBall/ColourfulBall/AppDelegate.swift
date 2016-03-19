@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  RxViewModelExample
+//  ColourfulBall
 //
-//  Created by Lukasz Mroz on 09.02.2016.
-//  Copyright © 2016 Droids on Roids. All rights reserved.
+//  Created by Lukasz Mroz on 19.03.2016.
+//  Copyright © 2016 Droids On Roids. All rights reserved.
 //
 
 import UIKit
