@@ -7,7 +7,8 @@ Also, please remember that this is work in progress. ✌️
 
 ## Blog posts
 1. [RxSwift by Examples #1 – The basics](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-1-the-basics/). Easy start to RxSwift based on the [RxSwiftExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxSwiftExample) repo.
-2. [RxSwift by Examples #2 – Observable and the Bind](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-2-observable-and-the-bind/). Here we talk about binding and variables based on the [RxViewModelExample](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxViewModelExample) repo.
+2. [RxSwift by Examples #2 – Observable and the Bind](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-2-observable-and-the-bind/). Here we talk about binding and variables based on the
+[ColourfulBall](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Simple%20Apps/ColourfulBall) repo.
 
 ## Examples in this repository:
 1. `Libraries Usage` consists of examples of specific libraries, with the basic one `RxSwiftExample` and
