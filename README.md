@@ -12,7 +12,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 
 ## Utilites
 
-1. [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx) - Handy RxSwift extensions on NSObject, including rx_disposeBag.
+1. [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx) - Handy RxSwift extensions on NSObject, including `rx_disposeBag`.
 2. [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift) - ObservableArray is an array that can emit messages of elements and diffs on it's changing.
 3. [RxOptional](https://github.com/RxSwiftCommunity/RxOptional) - RxSwift extentions for Swift optionals and "Occupiable" types.
 
@@ -61,7 +61,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 4. [CollectionVariable](https://github.com/gitdoapp/CollectionVariable) - RxSwift Variable for collections that report individual changes in the collection.
 
 ## Contributing
-Feel free to make issues/pull requests if you find something wrong in the entire repository, as well as you can add things you would want to see or you know that are written in RxSwift. Let's make our lives better and help each other!
+Feel free to make issues/pull requests if you find something wrong in examples or readme, as well as you can add things you would want to see or you know that are written in RxSwift. Let's make our lives better and help each other!
 
 ## Author
 
