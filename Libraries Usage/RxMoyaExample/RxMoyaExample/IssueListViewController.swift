@@ -43,7 +43,6 @@ class IssueListViewController: UIViewController {
         return searchBar
             .rx_text
             .throttle(0.5, scheduler: MainScheduler.instance)
-            .filter { $0.characters.count > 0 }
             .distinctUntilChanged()
     }
     
