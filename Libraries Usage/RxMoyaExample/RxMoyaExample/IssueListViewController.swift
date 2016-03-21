@@ -53,15 +53,33 @@ class IssueListViewController: UIViewController {
     }
     
     func setupRx() {
+        // First part of the puzzle, create our Provider
         provider = RxMoyaProvider<GitHub>()
+        
+        // Now we will setup our model
         issueTrackerModel = IssueTrackerModel(provider: provider, repositoryName: latestRepositoryName)
+        
+        // And bind issues to table view
+        // Here is where the magic happens, with only one binding
+        // we have filled up about 3 table view data source methods
         issueTrackerModel
             .trackIssues()
-            .bindTo(tableView.rx_itemsWithCellFactory) { (tv, row, item) in
-                let cell = tv.dequeueReusableCellWithIdentifier("issueCell", forIndexPath: NSIndexPath(forRow: row, inSection: 0))
+            .bindTo(tableView.rx_itemsWithCellFactory) { (tableView, row, item) in
+                let cell = tableView.dequeueReusableCellWithIdentifier("issueCell", forIndexPath: NSIndexPath(forRow: row, inSection: 0))
                 cell.textLabel?.text = item.title
                 
                 return cell
+            }
+            .addDisposableTo(disposeBag)
+        
+        // Here we tell table view that if user clicks on a cell,
+        // and the keyboard is still visible, hide it
+        tableView
+            .rx_itemSelected
+            .subscribeNext { indexPath in
+                if self.searchBar.isFirstResponder() == true {
+                    self.view.endEditing(true)
+                }
             }
             .addDisposableTo(disposeBag)
     }

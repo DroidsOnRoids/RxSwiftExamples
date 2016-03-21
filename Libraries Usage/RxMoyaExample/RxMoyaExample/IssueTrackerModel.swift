@@ -10,13 +10,14 @@ import Foundation
 import Moya
 import Mapper
 import Moya_ModelMapper
+import RxOptional
 import RxSwift
 
 protocol IssueTrackerModelType {
     var repositoryName: Observable<String> { get }
     var provider: RxMoyaProvider<GitHub> { get }
     
-    func findIssues(repository: Repository) -> Observable<[Issue]>
+    func findIssues(repository: Repository) -> Observable<[Issue]?>
 }
 
 struct IssueTrackerModel: IssueTrackerModelType {
@@ -27,38 +28,32 @@ struct IssueTrackerModel: IssueTrackerModelType {
     func trackIssues() -> Observable<[Issue]> {
         return repositoryName
             .observeOn(MainScheduler.instance)
-            .flatMapLatest { name -> Observable<Repository> in
+            .flatMapLatest { name -> Observable<Repository?> in
                 print("Name: \(name)")
-                return self.findRepository(name)
+                return self
+                    .findRepository(name)
             }
-            .flatMapLatest { repository -> Observable<[Issue]> in
+            .flatMapLatest { repository -> Observable<[Issue]?> in
+                guard let repository = repository else { return Observable.just(nil) }
+                
                 print("Repository: \(repository.fullName)")
                 return self.findIssues(repository)
             }
+            .replaceNilWith([])
     }
     
-    internal func findIssues(repository: Repository) -> Observable<[Issue]> {
-        // We could do this on repository name, but just to show chaining
-        // we will use whole Repository object
+    internal func findIssues(repository: Repository) -> Observable<[Issue]?> {
         return self.provider
             .request(GitHub.Issues(repositoryFullName: repository.fullName))
             .debug()
-            .mapArray(Issue.self)
-            .catchError { error in
-                print("Error! \(error)")                
-                return Observable.just([])
-            }
+            .mapArrayOptional(Issue.self)
     }
     
-    internal func findRepository(name: String) -> Observable<Repository> {
+    internal func findRepository(name: String) -> Observable<Repository?> {
         return self.provider
             .request(GitHub.Repo(fullName: name))
             .debug()
-            .mapObject(Repository.self)
-            .catchError { error in
-                print("Error! \(error)")
-                return Observable.never()
-            }
+            .mapObjectOptional(Repository.self)
     }
     
 }
