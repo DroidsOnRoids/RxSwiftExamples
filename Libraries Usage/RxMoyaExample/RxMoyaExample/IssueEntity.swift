@@ -6,7 +6,6 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 
-import Foundation
 import Mapper
 
 struct Issue: Mappable {
@@ -22,5 +21,4 @@ struct Issue: Mappable {
         try title = map.from("title")
         try body = map.from("body")
     }
-    
 }

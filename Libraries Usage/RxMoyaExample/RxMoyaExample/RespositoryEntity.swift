@@ -6,7 +6,6 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 
-import Foundation
 import Mapper
 
 struct Repository: Mappable {
@@ -24,5 +23,4 @@ struct Repository: Mappable {
         try fullName = map.from("full_name")
         url = map.optionalFrom("url")
     }
-    
 }

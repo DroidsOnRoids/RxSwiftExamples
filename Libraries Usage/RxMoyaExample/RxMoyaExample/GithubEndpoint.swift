@@ -10,12 +10,14 @@ import Foundation
 import Moya
 
 private extension String {
+    
     var URLEscapedString: String {
         return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
     }
 }
 
 enum GitHub {
+    
     case UserProfile(username: String)
     case Repos(username: String)
     case Repo(fullName: String)
@@ -23,6 +25,7 @@ enum GitHub {
 }
 
 extension GitHub: TargetType {
+    
     var baseURL: NSURL { return NSURL(string: "https://api.github.com")! }
     var path: String {
         switch self {

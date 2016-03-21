@@ -13,14 +13,7 @@ import Moya_ModelMapper
 import RxOptional
 import RxSwift
 
-protocol IssueTrackerModelType {
-    var repositoryName: Observable<String> { get }
-    var provider: RxMoyaProvider<GitHub> { get }
-    
-    func findIssues(repository: Repository) -> Observable<[Issue]?>
-}
-
-struct IssueTrackerModel: IssueTrackerModelType {
+struct IssueTrackerModel {
     
     let provider: RxMoyaProvider<GitHub>
     let repositoryName: Observable<String>
@@ -48,12 +41,11 @@ struct IssueTrackerModel: IssueTrackerModelType {
             .debug()
             .mapArrayOptional(Issue.self)
     }
-    
+
     internal func findRepository(name: String) -> Observable<Repository?> {
         return self.provider
             .request(GitHub.Repo(fullName: name))
             .debug()
             .mapObjectOptional(Repository.self)
     }
-    
 }
