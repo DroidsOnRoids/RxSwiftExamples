@@ -12,7 +12,6 @@ struct Repository: Mappable {
     
     let identifier: Int
     let language: String
-    let url: String?
     let name: String
     let fullName: String
     
@@ -21,6 +20,5 @@ struct Repository: Mappable {
         try language = map.from("language")
         try name = map.from("name")
         try fullName = map.from("full_name")
-        url = map.optionalFrom("url")
     }
 }
