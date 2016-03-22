@@ -26,6 +26,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 7. [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView) - RxMKMapView is a RxSwift wrapper for MKMapView `delegate`. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxMKMapViewExample)
 8. [RxMediaPicker](https://github.com/RxSwiftCommunity/RxMediaPicker) - A reactive wrapper built around UIImagePickerController.
 9. [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel) - ReactiveViewModel-esque using RxSwift.
+10. [RxGesture](https://github.com/icanzilb/RxGesture) - RxSwfit reactive wrapper for view gestures.
 
 ## Extensions to external frameworks
 1. [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxAlamofireExample)
