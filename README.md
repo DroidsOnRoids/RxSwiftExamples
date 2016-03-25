@@ -7,8 +7,8 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 
 ## Tutorials
 
-1. [RxSwift by Examples - #1 – The basics](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-1-the-basics/). Start your adventure with FRP and RxSwift. This article starts from the basics and shows the example of searching using Rx. [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxSwiftExample).
-2. [RxSwift by Examples - #2 – Observable and the Bind](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-2-observable-and-the-bind/). Bindings, subjects, variables and stuff. We are observing and we are observed! [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Simple%20Apps/ColourfulBall)
+1. [RxSwift by Examples #1 - The basics](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-1-the-basics/). Start your adventure with FRP and RxSwift. This article starts from the basics and shows the example of searching using Rx. [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxSwiftExample).
+2. [RxSwift by Examples #2 – Observable and the Bind](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-2-observable-and-the-bind/). Bindings, subjects, variables and stuff. We are observing and we are observed! [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Simple%20Apps/ColourfulBall)
 3. [RxSwift by Examples #3 - Networking](http://www.thedroidsonroids.com/blog/ios/rxswift-examples-3-networking/). Networking, Moya, request chaining, optional observers and more!
 
 ## Utilites
@@ -20,14 +20,14 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 ## Extensions to built-in frameworks
 1. [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources) - Table and Collection View Data Sources for RxSwift. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxDataSourcesExample)
 2. [RxBluetooth](https://github.com/SideEffects-xyz/RxBluetooth) - RxBluetooth is a wrapper library to work with RxSwift and CoreBluetooth.
-3. [RxSegue](https://github.com/sergdort/RxSegue) - Reactive generic segue, implemented with RxSwift.
+3. [RxSegue](https://github.com/RxSwiftCommunity/RxSegue) - Reactive generic segue, implemented with RxSwift.
 4. [RxEasing](https://github.com/lintmachine/RxEasing) - RxSwift-based easing library.
 5. [RxAction](https://github.com/RxSwiftCommunity/Action) - Abstracts actions to be performed in RxSwift. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxActionExample)
 6. [RxWebKit](https://github.com/RxSwiftCommunity/RxWebKit) - RxWebKit is a RxSwift wrapper for WebKit. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxWebKitExample)
 7. [RxMKMapView](https://github.com/RxSwiftCommunity/RxMKMapView) - RxMKMapView is a RxSwift wrapper for MKMapView `delegate`. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxMKMapViewExample)
 8. [RxMediaPicker](https://github.com/RxSwiftCommunity/RxMediaPicker) - A reactive wrapper built around UIImagePickerController.
 9. [RxViewModel](https://github.com/RxSwiftCommunity/RxViewModel) - ReactiveViewModel-esque using RxSwift.
-10. [RxGesture](https://github.com/icanzilb/RxGesture) - RxSwfit reactive wrapper for view gestures.
+10. [RxGesture](https://github.com/RxSwiftCommunity/RxGesture) - RxSwfit reactive wrapper for view gestures.
 
 ## Extensions to external frameworks
 1. [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxAlamofireExample)
