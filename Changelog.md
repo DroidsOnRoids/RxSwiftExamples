@@ -1,4 +1,5 @@
 # Next
+- Removed Calculator example from Simple Apps.
 
 # 0.1
 - Initial release! 🎉
