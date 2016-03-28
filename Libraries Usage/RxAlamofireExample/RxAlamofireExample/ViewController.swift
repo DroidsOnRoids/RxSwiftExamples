@@ -70,9 +70,12 @@ class ViewController: UIViewController {
                     .observeOn(MainScheduler.instance)
                     .debug()
             }
-            .doOn(onNext: { text in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            })
+            .doOn(onNext: { response in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }, onError: { error in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }
+            )
             .subscribe(
                 onNext: { (response, json) in
                     if let repos = Mapper<Repository>().mapArray(json) {
