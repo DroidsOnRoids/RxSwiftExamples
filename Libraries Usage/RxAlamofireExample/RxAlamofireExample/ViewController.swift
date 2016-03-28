@@ -92,17 +92,17 @@ class ViewController: UIViewController {
     
     func setupUI() {
         tableView.dataSource = self
-        let tap = UITapGestureRecognizer(target: self, action: "tableTapped:")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped(_:)))
         tableView.addGestureRecognizer(tap)
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "keyboardWillShow:",
+            selector: #selector(keyboardWillShow(_:)),
             name: UIKeyboardWillShowNotification,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "keyboardWillHide:",
+            selector: #selector(keyboardWillHide(_:)),
             name: UIKeyboardWillHideNotification,
             object: nil)
     }
