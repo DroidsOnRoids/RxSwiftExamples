@@ -1,6 +1,6 @@
 # RxSwiftExamples
 
-This repo should be a nice starting point for anyone that wants to start the new adventure called FRP with RxSwift.
+This repo should be a nice starting point for anyone that wants to start the new adventure called FRP with [RxSwift](https://github.com/ReactiveX/RxSwift/).
 However, here we also have some references to more advanced examples so that no-one feels unsubscribed 😎
 
 We try to deeply comment our examples, but bear with us if they aren't and if you have any questions just use the contact information on the bottom of the page and ask away!
