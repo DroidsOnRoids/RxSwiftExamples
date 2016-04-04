@@ -23,5 +23,4 @@ class Repository: Mappable {
         url <- map["url"]
         name <- map["name"]
     }
-    
 }

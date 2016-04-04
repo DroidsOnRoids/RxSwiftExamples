@@ -76,8 +76,7 @@ class ViewController: UIViewController {
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
             )
-            .subscribe(
-                onNext: { (response, json) in
+            .subscribe(onNext: { (response, json) in
                     if let repos = Mapper<Repository>().mapArray(json) {
                         self.repos = repos
                     } else {
@@ -135,7 +134,6 @@ class ViewController: UIViewController {
             tableView.delegate?.tableView?(tableView, didSelectRowAtIndexPath: path!)
         }
     }
-    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -153,5 +151,4 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
-    
 }
