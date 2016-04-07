@@ -3,6 +3,7 @@
   - RxGesture
   - RxSegue
   - RxSimpleNoSQL
+  - RxExt
 - Removed
   - Calculator from Simple Apps
 

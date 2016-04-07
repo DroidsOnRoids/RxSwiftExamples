@@ -16,6 +16,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 1. [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx) - Handy RxSwift extensions on NSObject, including `rx_disposeBag`.
 2. [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift) - ObservableArray is an array that can emit messages of elements and diffs on it's changing.
 3. [RxOptional](https://github.com/RxSwiftCommunity/RxOptional) - RxSwift extentions for Swift optionals and "Occupiable" types.
+4. [RxExt](https://github.com/RxSwiftCommunity/RxSwift-Ext) - Additional operators not found in the core RxSwift distribution.
 
 ## Extensions to built-in frameworks
 1. [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources) - Table and Collection View Data Sources for RxSwift. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxDataSourcesExample)
