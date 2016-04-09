@@ -15,6 +15,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 
 1. [NSObject-Rx](https://github.com/RxSwiftCommunity/NSObject-Rx) - Handy RxSwift extensions on NSObject, including `rx_disposeBag`.
 2. [ObservableArray-RxSwift](https://github.com/safx/ObservableArray-RxSwift) - ObservableArray is an array that can emit messages of elements and diffs on it's changing.
+3. [Cell+Rx](https://github.com/ivanbruel/Cell-Rx) - Handy RxSwift extensions on UITableViewCell and UICollectionViewCell, including rx_reusableDisposeBag.
 3. [RxOptional](https://github.com/RxSwiftCommunity/RxOptional) - RxSwift extentions for Swift optionals and "Occupiable" types.
 4. [RxExt](https://github.com/RxSwiftCommunity/RxSwift-Ext) - Additional operators not found in the core RxSwift distribution.
 
@@ -63,6 +64,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 2. [RxSugar](https://github.com/RxSugar/RxSugar) - Simple RxSwift extensions for interacting with Apple APIs.
 3. [ReactiveCommander](https://github.com/pepibumur/ReactiveCommander) - Reactive Command pattern. This one is for RxSwift as well as for ReactiveCocoa.
 4. [CollectionVariable](https://github.com/gitdoapp/CollectionVariable) - RxSwift Variable for collections that report individual changes in the collection.
+5. [RxTwift](https://github.com/mihyaeru21/RxTwift) - A type safe Twitter API client constructed on RxSwift.
 
 ## Contributing
 Feel free to make issues/pull requests if you find something wrong in examples or readme, as well as you can add things you would want to see or you know that are written in RxSwift. Let's make our lives better and help each other!
