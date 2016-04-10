@@ -4,6 +4,8 @@
   - RxSegue
   - RxSimpleNoSQL
   - RxExt
+  - Cell+Rx
+  - RxTwift
 - Removed
   - Calculator from Simple Apps
 
