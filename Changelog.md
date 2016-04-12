@@ -6,6 +6,7 @@
   - RxExt
   - Cell+Rx
   - RxTwift
+  - RxAppState
 - Removed
   - Calculator from Simple Apps
 
