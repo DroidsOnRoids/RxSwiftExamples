@@ -43,6 +43,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 8. [RxBrightFutures](https://github.com/SideEffects-xyz/RxBrightFutures) - RxSwift wrapper around the Future/Promise library BrightFutures.
 9. [RxMoya](https://github.com/Moya/Moya/blob/master/docs/RxSwift.md) - RxSwift wrapper for Moya. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxMoyaExample)
 10. [RxSimpleNoSQL](https://github.com/xmartlabs/RxSimpleNoSQL/) - Reactive extensions for SimpleNoSQL.
+11. [RxPermission](https://github.com/sunshinejr/RxPermission) - RxSwift bindings for Permissions API in iOS.
 
 ## Examples
 
