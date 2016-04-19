@@ -1,4 +1,6 @@
 # Next
+
+# 0.2
 - Added
   - RxGesture
   - RxSegue
