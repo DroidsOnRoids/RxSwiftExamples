@@ -7,6 +7,7 @@
   - Cell+Rx
   - RxTwift
   - RxAppState
+  - RxPermission
 - Removed
   - Calculator from Simple Apps
 
