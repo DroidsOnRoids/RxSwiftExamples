@@ -1,4 +1,6 @@
 # Next
+- Added
+  - RxBluetoothKit
 
 # 0.2
 - Added
