@@ -39,6 +39,14 @@ class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     var repos = Variable<[Repository]>([])
     
+    var rx_searchBarText: Observable<String> {
+        return searchBar
+            .rx_text
+            .filter { $0.characters.count > 0 }
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRx()
@@ -46,17 +54,14 @@ class ViewController: UIViewController {
     }
     
     func setupRx() {
-        searchBar.rx_text
-            .filter { $0.characters.count > 0 }
-            .throttle(0.5, scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .doOn(onNext: { text in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            })
+        rx_searchBarText
             .flatMapLatest { text in
                 return RxAlamofire
                     .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
                     .debug()
+                    .catchError { error in
+                        return Observable.never()
+                    }
                     .observeOn(MainScheduler.instance)
             }
             .doOn(onNext: { response in
@@ -65,16 +70,19 @@ class ViewController: UIViewController {
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
             )
-            .subscribe(onNext: { (response, json) in
-                    if let repos = Mapper<Repository>().mapArray(json) {
-                        self.repos.value = repos
-                    } else {
-                        self.repos.value = []
-                    }
-                }, onError: { (error) in
-                    self.repos.value = []
+            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: DispatchQueueSchedulerQOS.Background))
+            .map { (response, json) -> [Repository] in
+                if let repos = Mapper<Repository>().mapArray(json) {
+                    return repos
+                } else {
+                    return []
                 }
-            )
+            }
+            .observeOn(MainScheduler.instance)
+            .subscribeNext { repositories in
+                self.repos.value = repositories
+                print("New \(repositories.count) repositories arrived!")
+            }
             .addDisposableTo(disposeBag)
         
         repos
