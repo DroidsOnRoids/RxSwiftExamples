@@ -37,18 +37,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     let disposeBag = DisposeBag()
-    var repos = [Repository]() {
-        didSet {
-            tableView.reloadData()
-            if repos.count == 0 {
-                let alert = UIAlertController(title: ":(", message: "No repositories for this user.", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                if self.navigationController?.visibleViewController?.isMemberOfClass(UIAlertController.self) != true {
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            }
-        }
-    }
+    var repos = Variable<[Repository]>([])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +56,8 @@ class ViewController: UIViewController {
             .flatMapLatest { text in
                 return RxAlamofire
                     .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
-                    .observeOn(MainScheduler.instance)
                     .debug()
+                    .observeOn(MainScheduler.instance)
             }
             .doOn(onNext: { response in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -78,19 +67,41 @@ class ViewController: UIViewController {
             )
             .subscribe(onNext: { (response, json) in
                     if let repos = Mapper<Repository>().mapArray(json) {
-                        self.repos = repos
+                        self.repos.value = repos
                     } else {
-                        self.repos = []
+                        self.repos.value = []
                     }
                 }, onError: { (error) in
-                    self.repos = []
+                    self.repos.value = []
                 }
             )
+            .addDisposableTo(disposeBag)
+        
+        repos
+            .asDriver()
+            .drive(tableView.rx_itemsWithCellFactory) { (tv, i, repository) in
+                let cell = tv.dequeueReusableCellWithIdentifier("repositoryCell", forIndexPath: NSIndexPath(forRow: i, inSection: 0))
+                cell.textLabel?.text = repository.name
+                
+                return cell
+            }
+            .addDisposableTo(disposeBag)
+        
+        repos
+            .asDriver()
+            .driveNext { repositories in
+                if repositories.count == 0 {
+                    let alert = UIAlertController(title: ":(", message: "No repositories for this user.", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    if self.navigationController?.visibleViewController?.isMemberOfClass(UIAlertController.self) != true {
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                }
+            }
             .addDisposableTo(disposeBag)
     }
     
     func setupUI() {
-        tableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped(_:)))
         tableView.addGestureRecognizer(tap)
         NSNotificationCenter.defaultCenter().addObserver(
@@ -133,22 +144,5 @@ class ViewController: UIViewController {
         } else if path != nil {
             tableView.delegate?.tableView?(tableView, didSelectRowAtIndexPath: path!)
         }
-    }
-}
-
-extension ViewController: UITableViewDataSource {
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("repositoryCell", forIndexPath: indexPath)
-        cell.textLabel?.text = repos[indexPath.row].name
-        return cell
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repos.count
     }
 }
