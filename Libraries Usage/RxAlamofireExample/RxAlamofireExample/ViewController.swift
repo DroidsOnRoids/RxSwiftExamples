@@ -54,34 +54,35 @@ class ViewController: UIViewController {
     }
     
     func setupRx() {
-        rx_searchBarText
-            .doOn(onNext: { response in
+        rx_searchBarText // MainScheduler
+            .doOn(onNext: { response in // still MainScheduler, UI updates
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             })
-            .flatMapLatest { text in
+            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
+            .flatMapLatest { text in // .Background thread, network request
                 return RxAlamofire
                     .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
                     .debug()
                     .catchError { error in
                         return Observable.never()
                     }
-                    .observeOn(MainScheduler.instance)
             }
+            .observeOn(MainScheduler.instance) // switch to MainScheduler, UI updates
             .doOn(onNext: { response in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }, onError: { error in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
             )
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: DispatchQueueSchedulerQOS.Background))
-            .map { (response, json) -> [Repository] in
+            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
+            .map { (response, json) -> [Repository] in // again back to .Background, map objects
                 if let repos = Mapper<Repository>().mapArray(json) {
                     return repos
                 } else {
                     return []
                 }
             }
-            .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance) // back to MainScheduler, UI updates
             .subscribeNext { repositories in
                 self.repos.value = repositories
                 print("New \(repositories.count) repositories arrived!")
