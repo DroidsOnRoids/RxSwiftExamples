@@ -55,6 +55,9 @@ class ViewController: UIViewController {
     
     func setupRx() {
         rx_searchBarText
+            .doOn(onNext: { response in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            })
             .flatMapLatest { text in
                 return RxAlamofire
                     .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
