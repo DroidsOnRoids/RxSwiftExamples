@@ -32,6 +32,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 10. [RxGesture](https://github.com/RxSwiftCommunity/RxGesture) - RxSwfit reactive wrapper for view gestures.
 11. [RxAppState](https://github.com/pixeldock/RxAppState) - RxSwift extensions for UIApplicationDelegate methods to observe changes in your app's state.
 12. [RxBluetoothKit](https://github.com/Polidea/RxBluetoothKit) - iOS Bluetooth library for RxSwift.
+13. [RxMultipeer](https://github.com/RxSwiftCommunity/RxMultipeer) - RxSwift wrapper for MultipeerConnectivity.
 
 ## Extensions to external frameworks
 1. [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxAlamofireExample)
