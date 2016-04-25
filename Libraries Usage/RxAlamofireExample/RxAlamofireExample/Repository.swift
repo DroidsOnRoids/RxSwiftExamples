@@ -6,7 +6,6 @@
 //  Copyright © 2016 Droids on Roids. All rights reserved.
 //
 
-import Foundation
 import ObjectMapper
 
 class Repository: Mappable {

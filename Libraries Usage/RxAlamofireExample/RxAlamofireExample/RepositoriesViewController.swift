@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RepositoriesViewController.swift
 //  RxAlamofireExample
 //
 //  Created by Lukasz Mroz on 10.02.2016.
@@ -22,22 +22,23 @@
 //  as you can see in the code. We will make a requst to GitHub
 //  API and fetch the request for given username. To parse json
 //  array into Repository objects we will use ObjectMapper here.
-//  And thats it! Not that hard, right?
+//  And thats it! Not that hard, right? Oh, and also be careful 
+//  about Schedulers. :wink:
 //
 
 import UIKit
 import ObjectMapper
 import RxAlamofire
-import RxSwift
 import RxCocoa
+import RxSwift
 
-class ViewController: UIViewController {
+class RepositoriesViewController: UIViewController {
     
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     let disposeBag = DisposeBag()
-    var repos = Variable<[Repository]>([])
+    var repositoryNetworkModel: RepositoryNetworkModel!
     
     var rx_searchBarText: Observable<String> {
         return searchBar
@@ -50,47 +51,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRx()
-        setupUI()
     }
     
     func setupRx() {
-        rx_searchBarText // MainScheduler
-            .doOn(onNext: { response in // still MainScheduler, UI updates
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            })
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .flatMapLatest { text in // .Background thread, network request
-                return RxAlamofire
-                    .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
-                    .debug()
-                    .catchError { error in
-                        return Observable.never()
-                    }
-            }
-            .observeOn(MainScheduler.instance) // switch to MainScheduler, UI updates
-            .doOn(onNext: { response in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                }, onError: { error in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                }
-            )
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .map { (response, json) -> [Repository] in // again back to .Background, map objects
-                if let repos = Mapper<Repository>().mapArray(json) {
-                    return repos
-                } else {
-                    return []
-                }
-            }
-            .observeOn(MainScheduler.instance) // back to MainScheduler, UI updates
-            .subscribeNext { repositories in
-                self.repos.value = repositories
-                print("New \(repositories.count) repositories arrived!")
-            }
-            .addDisposableTo(disposeBag)
+        repositoryNetworkModel = RepositoryNetworkModel(withNameObservable: rx_searchBarText)
         
-        repos
-            .asDriver()
+        repositoryNetworkModel
+            .rx_repositories
             .drive(tableView.rx_itemsWithCellFactory) { (tv, i, repository) in
                 let cell = tv.dequeueReusableCellWithIdentifier("repositoryCell", forIndexPath: NSIndexPath(forRow: i, inSection: 0))
                 cell.textLabel?.text = repository.name
@@ -99,8 +66,8 @@ class ViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        repos
-            .asDriver()
+        repositoryNetworkModel
+            .rx_repositories
             .driveNext { repositories in
                 if repositories.count == 0 {
                     let alert = UIAlertController(title: ":(", message: "No repositories for this user.", preferredStyle: .Alert)
@@ -153,8 +120,8 @@ class ViewController: UIViewController {
         let path = tableView.indexPathForRowAtPoint(location)
         if searchBar.isFirstResponder() {
             searchBar.resignFirstResponder()
-        } else if path != nil {
-            tableView.delegate?.tableView?(tableView, didSelectRowAtIndexPath: path!)
+        } else if let path = path {
+            tableView.selectRowAtIndexPath(path, animated: true, scrollPosition: .Middle)
         }
     }
 }
