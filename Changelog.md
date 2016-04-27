@@ -1,6 +1,7 @@
 # Next
 - Added
   - RxBluetoothKit
+  - RxMultipeer
   - RxMarbles
 
 # 0.2
