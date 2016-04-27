@@ -1,6 +1,7 @@
 # Next
 - Added
   - RxBluetoothKit
+  - RxMarbles
 
 # 0.2
 - Added
