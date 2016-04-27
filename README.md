@@ -61,6 +61,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 1. [Eidolon](https://github.com/artsy/eidolon) - The Artsy Auction Kiosk App.
 2. [Boilerplate](https://github.com/tailec/boilerplate#github-api-client) - GitHub client using MVVM and RxSwift.
 3. [ReactiveWeatherExample](https://github.com/marinbenc/ReactiveWeatherExample) - A simple iOS weather app using the MVVM pattern and RxSwift framework.
+4. [RxMarbles](https://github.com/RxSwiftCommunity/RxMarbles) - RxMarbles iOS app.
 
 ## More
 
