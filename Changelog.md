@@ -3,6 +3,7 @@
   - RxBluetoothKit
   - RxMultipeer
   - RxMarbles
+  - RxSwift by Examples \#4 - Multithreading
 
 # 0.2
 - Added

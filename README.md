@@ -10,6 +10,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 1. [RxSwift by Examples #1 - The basics](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-1-the-basics/). Start your adventure with FRP and RxSwift. This article starts from the basics and shows the example of searching using Rx. [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxSwiftExample).
 2. [RxSwift by Examples #2 – Observable and the Bind](http://www.thedroidsonroids.com/blog/ios/rxswift-by-examples-2-observable-and-the-bind/). Bindings, subjects, variables and stuff. We are observing and we are observed! [Demo](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Simple%20Apps/ColourfulBall)
 3. [RxSwift by Examples #3 - Networking](http://www.thedroidsonroids.com/blog/ios/rxswift-examples-3-networking/). Networking, Moya, request chaining, optional observers and more!
+4. [RxSwift by Examples #4 - Multithreading](http://www.thedroidsonroids.com/blog/ios/rxswift-examples-4-multithreading/) - `observeOn()`, `subscribeOn()`, `Driver` and more!
 
 ## Utilites
 
