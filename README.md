@@ -63,6 +63,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 2. [Boilerplate](https://github.com/tailec/boilerplate#github-api-client) - GitHub client using MVVM and RxSwift.
 3. [ReactiveWeatherExample](https://github.com/marinbenc/ReactiveWeatherExample) - A simple iOS weather app using the MVVM pattern and RxSwift framework.
 4. [RxMarbles](https://github.com/RxSwiftCommunity/RxMarbles) - RxMarbles iOS app.
+5. [CountItApp](https://github.com/PiXeL16/CountItApp) - Dead simple App with Apple Watch integration that lets you count anything.
 
 ## More
 
