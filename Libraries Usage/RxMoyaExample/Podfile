@@ -5,7 +5,8 @@ target 'RxMoyaExample' do
 
 pod 'Moya/RxSwift'
 pod 'Moya-ModelMapper/RxSwift'
-pod 'RxCocoa'
-pod 'RxOptional'
+pod 'RxSwift', '~> 2.0'
+pod 'RxCocoa', '~> 2.0'
+pod 'RxOptional', '~> 2.0'
 
 end

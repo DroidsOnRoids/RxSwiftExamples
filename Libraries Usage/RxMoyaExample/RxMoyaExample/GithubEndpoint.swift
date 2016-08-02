@@ -54,4 +54,8 @@ extension GitHub: TargetType {
             return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }
+    
+    var multipartBody: [Moya.MultipartFormData]? {
+        return nil
+    }
 }
