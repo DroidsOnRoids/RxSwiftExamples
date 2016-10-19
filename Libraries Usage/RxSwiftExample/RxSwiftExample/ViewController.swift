@@ -47,12 +47,12 @@ class ViewController: UIViewController {
     func setup() {
         tableView.dataSource = self
         searchBar
-            .rx_text // Observable property thanks to RxCocoa
+            .rx.text // Observable property thanks to RxCocoa
             .throttle(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
             .filter { $0.characters.count > 0 } // If the new value is really new, filter for non-empty query.
-            .subscribeNext { [unowned self] (query) in // Here we subscribe to every new value, that is not empty (thanks to filter above).
-                self.shownCities = self.allCities.filter { $0.hasPrefix(query) } // We now do our "API Request" to find cities.
+            .subscribe { [unowned self] (query) in // Here we subscribe to every new value, that is not empty (thanks to filter above).
+                self.shownCities = self.allCities.filter { $0.hasPrefix(query.element!) } // We now do our "API Request" to find cities.
                 self.tableView.reloadData() // And reload table view data.
             }
             .addDisposableTo(disposeBag) // Don't forget to add this to disposeBag to avoid retain cycle.
@@ -64,12 +64,12 @@ class ViewController: UIViewController {
 /// Here we have standard data source extension for ViewController
 extension ViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shownCities.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cityPrototypeCell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath as IndexPath)
         cell.textLabel?.text = shownCities[indexPath.row]
         
         return cell
