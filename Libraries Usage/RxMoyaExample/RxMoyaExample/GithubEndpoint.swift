@@ -11,47 +11,51 @@ import Moya
 
 private extension String {
     var URLEscapedString: String {
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        return self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
     }
 }
 
 enum GitHub {
-    case UserProfile(username: String)
-    case Repos(username: String)
-    case Repo(fullName: String)
-    case Issues(repositoryFullName: String)
+    case userProfile(username: String)
+    case repos(username: String)
+    case repo(fullName: String)
+    case issues(repositoryFullName: String)
 }
 
 extension GitHub: TargetType {
-    var baseURL: NSURL { return NSURL(string: "https://api.github.com")! }
+    public var task: Task {
+        return .request
+    }
+
+    var baseURL: URL { return URL(string: "https://api.github.com")! }
     var path: String {
         switch self {
-        case .Repos(let name):
+        case .repos(let name):
             return "/users/\(name.URLEscapedString)/repos"
-        case .UserProfile(let name):
+        case .userProfile(let name):
             return "/users/\(name.URLEscapedString)"
-        case .Repo(let name):
+        case .repo(let name):
             return "/repos/\(name)"
-        case .Issues(let repositoryName):
+        case .issues(let repositoryName):
             return "/repos/\(repositoryName)/issues"
         }
     }
     var method: Moya.Method {
-        return .GET
+        return .get
     }
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         return nil
     }
-    var sampleData: NSData {
+    var sampleData: Data {
         switch self {
-        case .Repos(_):
-            return "{{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}}}".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .UserProfile(let name):
-            return "{\"login\": \"\(name)\", \"id\": 100}".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .Repo(_):
-            return "{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .Issues(_):
-            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".dataUsingEncoding(NSUTF8StringEncoding)!
+        case .repos(_):
+            return "{{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}}}".data(using: String.Encoding.utf8)!
+        case .userProfile(let name):
+            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
+        case .repo(_):
+            return "{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}".data(using: String.Encoding.utf8)!
+        case .issues(_):
+            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".data(using: String.Encoding.utf8)!
         }
     }
     
