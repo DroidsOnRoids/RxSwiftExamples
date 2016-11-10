@@ -39,49 +39,49 @@ class ViewController: UIViewController {
     
     func setupResizing() {
         webView.frame = webViewWrapper.frame
-        webView.frame.origin = CGPointZero
+        webView.frame.origin = CGPoint.zero
     }
     
     func setupRx() {
-        webView
-            .rx_title
-            .filter { $0?.characters.count > 0 }
-            .subscribeNext { title in
+        webView.rx.title
+            .filter { $0 != nil }
+            .map { $0! }
+            .filter { $0.characters.count > 0 }
+            .subscribe(onNext: { title in
                 self.title = title
-            }
-            .addDisposableTo(disposeBag)
-        
-        searchBar
-            .rx_text
-            .throttle(0.5, scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .filter { NSURL(string: $0) != nil }
-            .map { NSURL(string: $0)! }
-            .subscribeNext({ url in
-                self.webView.loadRequest(NSURLRequest(URL: url))
             })
             .addDisposableTo(disposeBag)
         
-        webView.rx_URL
-            .subscribeNext { url in
+        searchBar.rx.text
+            .filter { $0 != nil }
+            .map { $0! }
+            .debounce(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { URL(string: $0) != nil }
+            .map { URL(string: $0)! }
+            .subscribe(onNext: { url in
+                self.webView.load(URLRequest(url: url))
+            })
+            .addDisposableTo(disposeBag)
+        
+        webView.rx.url
+            .subscribe(onNext: { url in
                 self.searchBar.text = url?.absoluteString
                 print("URL: \(url)")                
-            }
+            })
             .addDisposableTo(disposeBag)
         
-        webView.rx_estimatedProgress
-            .subscribeNext {
+        webView.rx.estimatedProgress
+            .subscribe(onNext: {
                 print("estimatedProgress: \($0)")
-            }
+            })
             .addDisposableTo(disposeBag)
         
-        webView.rx_loading
-            .subscribeNext { loading in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
+        webView.rx.loading
+            .subscribe(onNext: { loading in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = loading
                 print("loading: \(loading)")
-            }
+            })
             .addDisposableTo(disposeBag)
-    }
-    
+    }   
 }
-
