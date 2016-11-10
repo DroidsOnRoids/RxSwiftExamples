@@ -15,7 +15,7 @@
 //  b) What if someone will spam API by continuesly changing letters?
 //
 //  We want to be safe with our app so we will filter the empty queries to protect against a).
-//  About the b), we will use RxSwift's throttle() & distinctUntilChanged(). The first one
+//  About the b), we will use RxSwift's debounce() & distinctUntilChanged(). The first one
 //  waits given time for a change. If the change occured before the time given, timer will reset
 //  and Rx will wait again for a change. If change didn't happen in specified time, the next value
 //  will go through. Basically it means that we will wait X time before sending API request, if someone
@@ -37,8 +37,7 @@ class ViewController: UIViewController {
     
     var shownCities = [String]() // Data source for UITableView
     let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"] // Our mocked API data source
-    let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
-    
+    let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -48,14 +47,16 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         searchBar
             .rx.text // Observable property thanks to RxCocoa
-            .throttle(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+            .filter { $0 != nil } // we can use RxOptional here, but just to show how to do it without
+            .map { $0! }
+            .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
             .filter { $0.characters.count > 0 } // If the new value is really new, filter for non-empty query.
             .subscribe { [unowned self] (query) in // Here we subscribe to every new value, that is not empty (thanks to filter above).
                 self.shownCities = self.allCities.filter { $0.hasPrefix(query.element!) } // We now do our "API Request" to find cities.
                 self.tableView.reloadData() // And reload table view data.
             }
-            .addDisposableTo(disposeBag) // Don't forget to add this to disposeBag to avoid retain cycle.
+            .addDisposableTo(disposeBag) // Don't forget to add this to disposeBag. We want to dispose it on deinit.
     }
     
 }
@@ -74,5 +75,4 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
