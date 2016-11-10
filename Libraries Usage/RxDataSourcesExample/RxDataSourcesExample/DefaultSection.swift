@@ -17,12 +17,12 @@ public struct DefaultSection: AnimatableSectionModelType {
     var header: String
     var storedItems: [Item] {
         didSet {
-            updated = NSDate()
+            updated = Date()
         }
     }
-    var updated: NSDate
+    var updated: Date
     
-    init(header: String, items: [Item], updated: NSDate) {
+    init(header: String, items: [Item], updated: Date) {
         self.header = header
         self.storedItems = items
         self.updated = updated
@@ -44,7 +44,7 @@ public struct DefaultSection: AnimatableSectionModelType {
 
 public struct DefaultItem {
     let title: String
-    let dateChanged: NSDate
+    let dateChanged: Date
 }
 
 extension DefaultItem: IdentifiableType, Equatable {
@@ -56,5 +56,5 @@ extension DefaultItem: IdentifiableType, Equatable {
 }
 
 public func == (lhs: DefaultItem, rhs: DefaultItem) -> Bool {
-    return lhs.title == rhs.title && lhs.dateChanged.isEqualToDate(rhs.dateChanged)
+    return lhs.title == rhs.title && (lhs.dateChanged == rhs.dateChanged)
 }

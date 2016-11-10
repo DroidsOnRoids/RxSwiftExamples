@@ -36,23 +36,26 @@ class ViewController: UIViewController {
     
     func setup() {
         allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"]
-        shownCitiesSection = DefaultSection(header: "Cities", items: allCities.toItems(), updated: NSDate())
+        shownCitiesSection = DefaultSection(header: "Cities", items: allCities.toItems(), updated: Date())
         sections.onNext([shownCitiesSection])
-        dataSource.configureCell = { (tableView, indexPath, index) in
-            let cell = tableView.dequeueReusableCellWithIdentifier("cityPrototypeCell", forIndexPath: indexPath)
+        dataSource.configureCell = { (_, tableView, indexPath, index) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath)
             cell.textLabel?.text = self.shownCitiesSection.items[indexPath.row].title
             return cell
         }
         
         sections
             .asObservable()
-            .bindTo(tableView.rx_itemsWithDataSource(dataSource))
+            .bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(rx_disposeBag) // Instead of creating the bag again and again, use the extension NSObject_rx
+        
         searchBar
-            .rx_text
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .rx.text
+            .filter { $0 != nil }
+            .map { $0! }
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribeNext { [unowned self] (query) in
+            .subscribe(onNext: { [unowned self] query in
                 let items: [String]
                 if query.characters.count > 0 {
                     items = self.allCities.filter { $0.hasPrefix(query) }
@@ -65,14 +68,14 @@ class ViewController: UIViewController {
                 )
 
                 self.sections.onNext([self.shownCitiesSection])
-            }
+            })
             .addDisposableTo(rx_disposeBag)
     }
 
 }
 
-extension CollectionType where Self.Generator.Element == String {
+extension Collection where Self.Iterator.Element == String {
     func toItems() -> [DefaultItem] {
-        return self.map { DefaultItem(title: $0, dateChanged: NSDate()) }
+        return self.map { DefaultItem(title: $0, dateChanged: Date()) }
     }
 }

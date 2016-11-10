@@ -13,10 +13,11 @@
 		14BB13AF1C68DB830038C66A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BB13AE1C68DB830038C66A /* Assets.xcassets */; };
 		14BB13B21C68DB830038C66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BB13B01C68DB830038C66A /* LaunchScreen.storyboard */; };
 		14BB13BA1C68E3100038C66A /* DefaultSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BB13B91C68E3100038C66A /* DefaultSection.swift */; };
-		52B7E43C1FF8760033F96C3F /* Pods_RxDataSourcesExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0286F9283BF0EBDEE2B7BA /* Pods_RxDataSourcesExample.framework */; };
+		66519C9A2FB47C641F6733AD /* Pods_RxDataSourcesExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2AF3B8EBFF50496C1A9E7A /* Pods_RxDataSourcesExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2AF3B8EBFF50496C1A9E7A /* Pods_RxDataSourcesExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDataSourcesExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BB13A41C68DB830038C66A /* RxDataSourcesExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDataSourcesExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BB13A71C68DB830038C66A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BB13A91C68DB830038C66A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,9 +26,8 @@
 		14BB13B11C68DB830038C66A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14BB13B31C68DB830038C66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BB13B91C68E3100038C66A /* DefaultSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSection.swift; sourceTree = "<group>"; };
-		390A7894F079811290E60DBC /* Pods-RxDataSourcesExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDataSourcesExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample.release.xcconfig"; sourceTree = "<group>"; };
-		D958CDCEF183535D278A5661 /* Pods-RxDataSourcesExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDataSourcesExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample.debug.xcconfig"; sourceTree = "<group>"; };
-		EE0286F9283BF0EBDEE2B7BA /* Pods_RxDataSourcesExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDataSourcesExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40116FCADC438D4D98CA3767 /* Pods-RxDataSourcesExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDataSourcesExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample.release.xcconfig"; sourceTree = "<group>"; };
+		48B1B5612E5273779676A1CD /* Pods-RxDataSourcesExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDataSourcesExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B7E43C1FF8760033F96C3F /* Pods_RxDataSourcesExample.framework in Frameworks */,
+				66519C9A2FB47C641F6733AD /* Pods_RxDataSourcesExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 			children = (
 				14BB13A61C68DB830038C66A /* RxDataSourcesExample */,
 				14BB13A51C68DB830038C66A /* Products */,
-				E0231B8C57C35C5DE7DC5D3B /* Pods */,
-				BFCA4E880982CAB7E52E2D66 /* Frameworks */,
+				40A05A74A03EEE3B179D34ED /* Pods */,
+				F3D895D31EBAA45AAD2E744B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,21 +74,21 @@
 			path = RxDataSourcesExample;
 			sourceTree = "<group>";
 		};
-		BFCA4E880982CAB7E52E2D66 /* Frameworks */ = {
+		40A05A74A03EEE3B179D34ED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE0286F9283BF0EBDEE2B7BA /* Pods_RxDataSourcesExample.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E0231B8C57C35C5DE7DC5D3B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D958CDCEF183535D278A5661 /* Pods-RxDataSourcesExample.debug.xcconfig */,
-				390A7894F079811290E60DBC /* Pods-RxDataSourcesExample.release.xcconfig */,
+				48B1B5612E5273779676A1CD /* Pods-RxDataSourcesExample.debug.xcconfig */,
+				40116FCADC438D4D98CA3767 /* Pods-RxDataSourcesExample.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F3D895D31EBAA45AAD2E744B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C2AF3B8EBFF50496C1A9E7A /* Pods_RxDataSourcesExample.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,12 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14BB13B61C68DB830038C66A /* Build configuration list for PBXNativeTarget "RxDataSourcesExample" */;
 			buildPhases = (
-				7F9A1147597C6355468746F7 /* Check Pods Manifest.lock */,
+				535126794A54DFAAA155B70F /* [CP] Check Pods Manifest.lock */,
 				14BB13A01C68DB830038C66A /* Sources */,
 				14BB13A11C68DB830038C66A /* Frameworks */,
 				14BB13A21C68DB830038C66A /* Resources */,
-				735F07A42AB63254A345D968 /* Embed Pods Frameworks */,
-				25B58F4F4BFF472C7E748327 /* Copy Pods Resources */,
+				C6195519FE7DDA08BB69F038 /* [CP] Embed Pods Frameworks */,
+				447E6C04FFAF3EC373C9D4A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +126,7 @@
 				TargetAttributes = {
 					14BB13A31C68DB830038C66A = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -161,14 +162,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25B58F4F4BFF472C7E748327 /* Copy Pods Resources */ = {
+		447E6C04FFAF3EC373C9D4A3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,34 +177,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		735F07A42AB63254A345D968 /* Embed Pods Frameworks */ = {
+		535126794A54DFAAA155B70F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6195519FE7DDA08BB69F038 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxDataSourcesExample/Pods-RxDataSourcesExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F9A1147597C6355468746F7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -324,7 +325,7 @@
 		};
 		14BB13B71C68DB830038C66A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D958CDCEF183535D278A5661 /* Pods-RxDataSourcesExample.debug.xcconfig */;
+			baseConfigurationReference = 48B1B5612E5273779676A1CD /* Pods-RxDataSourcesExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -335,12 +336,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		14BB13B81C68DB830038C66A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 390A7894F079811290E60DBC /* Pods-RxDataSourcesExample.release.xcconfig */;
+			baseConfigurationReference = 40116FCADC438D4D98CA3767 /* Pods-RxDataSourcesExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -351,6 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.RxDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

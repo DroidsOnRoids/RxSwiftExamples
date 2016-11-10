@@ -1,21 +1,23 @@
 PODS:
-  - NSObject+Rx (1.2.0):
-    - RxSwift (~> 2.0.0)
-  - RxCocoa (2.1.0):
-    - RxSwift (~> 2.0)
-  - RxDataSources (0.3):
-    - RxCocoa (~> 2.0)
-    - RxSwift (~> 2.0)
-  - RxSwift (2.0.0)
+  - NSObject+Rx (2.0.0):
+    - RxSwift
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxDataSources (1.0.0):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
 
 DEPENDENCIES:
-  - NSObject+Rx
-  - RxDataSources
+  - NSObject+Rx (~> 2.0.0)
+  - RxDataSources (~> 1.0.0)
 
 SPEC CHECKSUMS:
-  NSObject+Rx: 552d0a5bb78087b0faf9f8a066148577f1231426
-  RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
-  RxDataSources: 6993a25d61c795f8d127a78f688b71376d5a4dad
-  RxSwift: d83246efa6f16c50c143bec134649d045498f601
+  NSObject+Rx: 2a9cd801d9c847e6d2486cbad8d7701b67834e70
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: b3490764254da45dabe95d550e5ded812682583d
+
+COCOAPODS: 1.1.1
