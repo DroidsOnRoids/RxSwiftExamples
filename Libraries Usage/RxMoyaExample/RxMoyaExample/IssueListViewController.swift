@@ -41,7 +41,7 @@ class IssueListViewController: UIViewController {
     
     var latestRepositoryName: Observable<String> {
         return searchBar
-            .rx_text
+            .rx.text
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
     }
@@ -63,8 +63,8 @@ class IssueListViewController: UIViewController {
         // we have filled up about 3 table view data source methods
         issueTrackerModel
             .trackIssues()
-            .bindTo(tableView.rx_itemsWithCellFactory) { (tableView, row, item) in
-                let cell = tableView.dequeueReusableCellWithIdentifier("issueCell", forIndexPath: NSIndexPath(forRow: row, inSection: 0))
+            .bindTo(tableView.rx.items) { (tableView, row, item) in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "issueCell", for: IndexPath(row: row, section: 0))
                 cell.textLabel?.text = item.title
                 
                 return cell
@@ -74,17 +74,17 @@ class IssueListViewController: UIViewController {
         // Here we tell table view that if user clicks on a cell,
         // and the keyboard is still visible, hide it
         tableView
-            .rx_itemSelected
-            .subscribeNext { indexPath in
-                if self.searchBar.isFirstResponder() == true {
+            .rx.itemSelected
+            .subscribe { indexPath in
+                if self.searchBar.isFirstResponder == true {
                     self.view.endEditing(true)
                 }
             }
             .addDisposableTo(disposeBag)
     }
 
-    func url(route: TargetType) -> String {
-        return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
+    func url(_ route: TargetType) -> String {
+        return route.baseURL.appendingPathComponent(route.path).absoluteString
     }
 }
 

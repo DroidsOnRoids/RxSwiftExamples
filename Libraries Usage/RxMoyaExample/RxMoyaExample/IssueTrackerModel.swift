@@ -35,17 +35,17 @@ struct IssueTrackerModel {
             .replaceNilWith([])
     }
     
-    internal func findIssues(repository: Repository) -> Observable<[Issue]?> {
+    internal func findIssues(_ repository: Repository) -> Observable<[Issue]?> {
         return self.provider
-            .request(GitHub.Issues(repositoryFullName: repository.fullName))
+            .request(GitHub.issues(repositoryFullName: repository.fullName))
             .debug()
-            .mapArrayOptional(Issue.self)
+            .mapArrayOptional(type: Issue.self)
     }
 
-    internal func findRepository(name: String) -> Observable<Repository?> {
+    internal func findRepository(_ name: String) -> Observable<Repository?> {
         return self.provider
-            .request(GitHub.Repo(fullName: name))
+            .request(GitHub.repo(fullName: name))
             .debug()
-            .mapObjectOptional(Repository.self)
+            .mapObjectOptional(type: Repository.self)
     }
 }
