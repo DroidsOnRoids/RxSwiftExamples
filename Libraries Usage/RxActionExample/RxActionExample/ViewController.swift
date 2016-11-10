@@ -43,70 +43,73 @@ class ViewController: UIViewController {
     }
     
     func setupRX() {
-        let validUsername = formFields // take array of inputs
+        let validUsernameCollection = formFields // take array of inputs
             .map { input in
-                input.rx_text.map { $0.characters.count > 0 } // map them into array of Observable<Bool>
+                input.rx.text
+                    .filter { $0 != nil }
+                    .map { $0! }
+                    .map { $0.characters.count > 0 } // map them into array of Observable<Bool>
             } // this allows us to use combineLatest, which fires up whenever any of the observables emits a signal
-            .combineLatest { filters -> Bool in
-                return filters.filter { $0 }.count == filters.count // if every input has length > 0, emit true
+        
+        let validUsername = Observable.combineLatest(validUsernameCollection) { filters in
+            return filters.filter { $0 }.count == filters.count // if every input has length > 0, emit true
         }
         
         let action = Action<Void, Void>(enabledIf: validUsername) { input in
-            let alert = UIAlertController(title: "Wooo!", message: "Registration completed!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Wooo!", message: "Registration completed!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return .empty()
         }
-        registerButton.rx_action = action
+        
+        registerButton.rx.action = action
     }
     
     func setupUI() {
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: UIKeyboardWillShowNotification,
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: UIKeyboardWillHideNotification,
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() else { return }
+    func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let margin: CGFloat = 10.0
         var responderY: CGFloat!
         formFields.forEach { field in
-            if field.isFirstResponder() {
-                responderY = CGRectGetMaxY(field.frame) + CGRectGetMinY(stackView.frame)
+            if field.isFirstResponder {
+                responderY = field.frame.maxY + stackView.frame.minY
                 return
             }
         }
-        currentTranslation = currentTranslation + responderY - CGRectGetMinY(keyboardFrame) + margin
+        currentTranslation = currentTranslation + responderY - keyboardFrame.minY + margin
         if currentTranslation != 0 {
-            UIView.animateWithDuration(0.3) {
-                self.stackView.transform = CGAffineTransformMakeTranslation(0.0, (-1)*self.currentTranslation)
-            }
+            UIView.animate(withDuration: 0.3, animations: {
+                self.stackView.transform = CGAffineTransform(translationX: 0.0, y: (-1)*self.currentTranslation)
+            }) 
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        UIView.animateWithDuration(0.3) {
+    func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.3, animations: {
             self.currentTranslation = 0.0
-            self.stackView.transform = CGAffineTransformMakeTranslation(0.0, 0.0)
-        }
+            self.stackView.transform = CGAffineTransform(translationX: 0.0, y: 0.0)
+        }) 
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
 }
-
