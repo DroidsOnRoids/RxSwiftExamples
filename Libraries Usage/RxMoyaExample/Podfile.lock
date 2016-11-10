@@ -1,47 +1,44 @@
 PODS:
   - Alamofire (4.0.1)
   - ModelMapper (5.0.0)
-  - Moya (8.0.0-beta.3):
-    - Moya/Core (= 8.0.0-beta.3)
-  - Moya-ModelMapper/Core (4.0.0-beta.2):
+  - Moya (8.0.0-beta.4):
+    - Moya/Core (= 8.0.0-beta.4)
+  - Moya-ModelMapper/Core (4.0.0-beta.3):
     - ModelMapper (= 5.0.0)
-    - Moya (= 8.0.0-beta.3)
-  - Moya-ModelMapper/RxSwift (4.0.0-beta.2):
+    - Moya (= 8.0.0-beta.4)
+  - Moya-ModelMapper/RxSwift (4.0.0-beta.3):
     - Moya-ModelMapper/Core
-    - Moya/RxSwift (= 8.0.0-beta.3)
-    - RxSwift (= 3.0.0-rc.1)
-  - Moya/Core (8.0.0-beta.3):
-    - Alamofire (~> 4.0.0)
-    - Result
-  - Moya/RxSwift (8.0.0-beta.3):
+    - Moya/RxSwift (= 8.0.0-beta.4)
+    - RxSwift (~> 3.0.0)
+  - Moya/Core (8.0.0-beta.4):
+    - Alamofire (~> 4.0)
+    - Result (~> 3.0)
+  - Moya/RxSwift (8.0.0-beta.4):
     - Moya/Core
-    - RxSwift
+    - RxSwift (~> 3.0)
   - Result (3.0.0)
-  - RxCocoa (3.0.0-rc.1):
-    - RxSwift (~> 3.0.0-rc.1)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
   - RxOptional (3.1.2):
     - RxCocoa
     - RxSwift
-  - RxSwift (3.0.0-rc.1)
+  - RxSwift (3.0.1)
 
 DEPENDENCIES:
-  - Moya (~> 8.0.0-beta.3)
-  - Moya-ModelMapper/RxSwift (~> 4.0.0-beta.2)
-  - Moya/RxSwift (~> 8.0.0-beta.3)
-  - RxCocoa (~> 3.0.0-beta.2)
+  - Moya-ModelMapper/RxSwift (~> 4.0.0-beta.3)
+  - RxCocoa (~> 3.0.1)
   - RxOptional (~> 3.1.2)
-  - RxSwift (~> 3.0.0-beta.2)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ModelMapper: 89ced1f51ec6360e93f6889d08c818d4cad526a3
-  Moya: f83c7f81eaa28cb0151549dfcf1f3fda4440bb50
-  Moya-ModelMapper: 2a2e8a1e6c50bf1022c53f31c22325b672caeded
+  Moya: bad6f72ec40661f09a8cd85ab470226d2795a485
+  Moya-ModelMapper: d7c1946ee93bf3b556bcdb9f203dc0fc5afd497b
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
-  RxCocoa: e72a074a7f38896ec0382d096df5f58df10115c7
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxOptional: 91e488186acdfe6d15b3fdef296aecf4ba061c03
-  RxSwift: d7a3819dd71789c473e3cbf1a0c02d58b2692739
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
 
-PODFILE CHECKSUM: 5a4253dad895e4c65a9ded9dd4aeda2fcee2e5f4
+PODFILE CHECKSUM: c5650cb42afc20987fde33bfaed680c7c4e69dcc
 
 COCOAPODS: 1.1.1

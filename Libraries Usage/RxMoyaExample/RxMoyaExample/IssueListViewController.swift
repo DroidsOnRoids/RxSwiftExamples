@@ -27,6 +27,7 @@
 import Moya
 import Moya_ModelMapper
 import UIKit
+import RxOptional
 import RxCocoa
 import RxSwift
 
@@ -40,9 +41,9 @@ class IssueListViewController: UIViewController {
     var issueTrackerModel: IssueTrackerModel!
     
     var latestRepositoryName: Observable<String> {
-        return searchBar
-            .rx.text
-            .throttle(0.5, scheduler: MainScheduler.instance)
+        return searchBar.rx.text
+            .filterNil()
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
     }
     

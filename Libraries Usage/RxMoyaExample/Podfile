@@ -12,12 +12,9 @@ end
 
 target 'RxMoyaExample' do
 
-pod 'RxSwift',    '~> 3.0.0-beta.2'
-pod 'RxCocoa',    '~> 3.0.0-beta.2'
+pod 'RxCocoa',    '~> 3.0.1'
 
-pod 'Moya', '~> 8.0.0-beta.3'
-pod 'Moya/RxSwift', '~> 8.0.0-beta.3'
-pod 'Moya-ModelMapper/RxSwift', '~> 4.0.0-beta.2'
+pod 'Moya-ModelMapper/RxSwift', '~> 4.0.0-beta.3'
 pod 'RxOptional', '~> 3.1.2'
 
 end
