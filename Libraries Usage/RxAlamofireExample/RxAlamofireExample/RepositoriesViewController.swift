@@ -41,10 +41,11 @@ class RepositoriesViewController: UIViewController {
     var repositoryNetworkModel: RepositoryNetworkModel!
     
     var rx_searchBarText: Observable<String> {
-        return searchBar
-            .rx_text
+        return searchBar.rx.text
+            .filter { $0 != nil }
+            .map { $0! }
             .filter { $0.characters.count > 0 }
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
     }
     
@@ -58,8 +59,8 @@ class RepositoriesViewController: UIViewController {
         
         repositoryNetworkModel
             .rx_repositories
-            .drive(tableView.rx_itemsWithCellFactory) { (tv, i, repository) in
-                let cell = tv.dequeueReusableCellWithIdentifier("repositoryCell", forIndexPath: NSIndexPath(forRow: i, inSection: 0))
+            .drive(tableView.rx.items) { (tv, i, repository) in
+                let cell = tv.dequeueReusableCell(withIdentifier: "repositoryCell", for: IndexPath(row: i, section: 0))
                 cell.textLabel?.text = repository.name
                 
                 return cell
@@ -68,60 +69,60 @@ class RepositoriesViewController: UIViewController {
         
         repositoryNetworkModel
             .rx_repositories
-            .driveNext { repositories in
+            .drive(onNext: { repositories in
                 if repositories.count == 0 {
-                    let alert = UIAlertController(title: ":(", message: "No repositories for this user.", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                    if self.navigationController?.visibleViewController?.isMemberOfClass(UIAlertController.self) != true {
-                        self.presentViewController(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: ":(", message: "No repositories for this user.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    if self.navigationController?.visibleViewController is UIAlertController != true {
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
-            }
+            })
             .addDisposableTo(disposeBag)
     }
     
     func setupUI() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped(_:)))
         tableView.addGestureRecognizer(tap)
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: UIKeyboardWillShowNotification,
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: UIKeyboardWillHideNotification,
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() else { return }
-        tableViewBottomConstraint.constant = CGRectGetHeight(keyboardFrame)
-        UIView.animateWithDuration(0.3) {
+    func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        tableViewBottomConstraint.constant = keyboardFrame.height
+        UIView.animate(withDuration: 0.3, animations: {
             self.view.updateConstraints()
-        }
+        }) 
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         tableViewBottomConstraint.constant = 0.0
-        UIView.animateWithDuration(0.3) {
+        UIView.animate(withDuration: 0.3, animations: {
             self.view.updateConstraints()
-        }
+        })
     }
     
-    func tableTapped(recognizer: UITapGestureRecognizer) {
-        let location = recognizer.locationInView(tableView)
-        let path = tableView.indexPathForRowAtPoint(location)
-        if searchBar.isFirstResponder() {
+    func tableTapped(_ recognizer: UITapGestureRecognizer) {
+        let location = recognizer.location(in: tableView)
+        let path = tableView.indexPathForRow(at: location)
+        if searchBar.isFirstResponder {
             searchBar.resignFirstResponder()
         } else if let path = path {
-            tableView.selectRowAtIndexPath(path, animated: true, scrollPosition: .Middle)
+            tableView.selectRow(at: path, animated: true, scrollPosition: .middle)
         }
     }
 }

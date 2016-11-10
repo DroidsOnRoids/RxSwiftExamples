@@ -14,38 +14,38 @@ import RxSwift
 struct RepositoryNetworkModel {
     
     lazy var rx_repositories: Driver<[Repository]> = self.fetchRepositories()
-    private var repositoryName: Observable<String>
+    fileprivate var repositoryName: Observable<String>
     
     init(withNameObservable nameObservable: Observable<String>) {
         self.repositoryName = nameObservable
     }
     
-    private func fetchRepositories() -> Driver<[Repository]> {
+    fileprivate func fetchRepositories() -> Driver<[Repository]> {
         return repositoryName
             .subscribeOn(MainScheduler.instance) // Make sure we are on MainScheduler
-            .doOn(onNext: { response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            .do(onNext: { response in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
             })
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .flatMapLatest { text in // .Background thread, network request
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .flatMapLatest { text in // .background thread, network request
                 return RxAlamofire
-                    .requestJSON(.GET, "https://api.github.com/users/\(text)/repos")
+                    .requestJSON(.get, "https://api.github.com/users/\(text)/repos")
                     .debug()
                     .catchError { error in
                         return Observable.never()
                     }
             }
-            .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .map { (response, json) -> [Repository] in // again back to .Background, map objects
-                if let repos = Mapper<Repository>().mapArray(json) {
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .map { (response, json) -> [Repository] in // again back to .background, map objects
+                if let repos = Mapper<Repository>().mapArray(JSONObject: json) {
                     return repos
                 } else {
                     return []
                 }
             }
             .observeOn(MainScheduler.instance) // switch to MainScheduler, UI updates
-            .doOn(onNext: { response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            .do(onNext: { response in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             .asDriver(onErrorJustReturn: []) // This also makes sure that we are on MainScheduler
     }
