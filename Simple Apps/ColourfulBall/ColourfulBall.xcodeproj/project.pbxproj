@@ -13,7 +13,7 @@
 		1404E2C71C9E0FEA00312CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1404E2C61C9E0FEA00312CF4 /* Main.storyboard */; };
 		1404E2C91C9E100500312CF4 /* CircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404E2C81C9E100500312CF4 /* CircleViewModel.swift */; };
 		1404E2CB1C9E102500312CF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404E2CA1C9E102500312CF4 /* ViewController.swift */; };
-		70B7C277EC6F8A3C783B5E16 /* Pods_ColourfulBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */; };
+		CA99631EA2C6ABD6B743DDB6 /* Pods_ColourfulBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C293194D2CAC327B64018CC /* Pods_ColourfulBall.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		1404E2C61C9E0FEA00312CF4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1404E2C81C9E100500312CF4 /* CircleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewModel.swift; sourceTree = "<group>"; };
 		1404E2CA1C9E102500312CF4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.debug.xcconfig"; sourceTree = "<group>"; };
-		BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.release.xcconfig"; sourceTree = "<group>"; };
-		C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColourfulBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14CB0E93D77109132340F9E4 /* Pods-ColourfulBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.debug.xcconfig"; sourceTree = "<group>"; };
+		7C293194D2CAC327B64018CC /* Pods_ColourfulBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColourfulBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5E6C8EFDD3E1F6E6189F804 /* Pods-ColourfulBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B7C277EC6F8A3C783B5E16 /* Pods_ColourfulBall.framework in Frameworks */,
+				CA99631EA2C6ABD6B743DDB6 /* Pods_ColourfulBall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 			children = (
 				1404E2B31C9E0F9200312CF4 /* ColourfulBall */,
 				1404E2B21C9E0F9200312CF4 /* Products */,
-				EB7E7BC2F3FC8BCBBF7C565B /* Pods */,
-				C08D40C401DEC8CEE5278C98 /* Frameworks */,
+				249C38BE3FEB33FBF6F84C98 /* Pods */,
+				547ECAFEBD20FA35F2769595 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,21 +74,21 @@
 			path = ColourfulBall;
 			sourceTree = "<group>";
 		};
-		C08D40C401DEC8CEE5278C98 /* Frameworks */ = {
+		249C38BE3FEB33FBF6F84C98 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EB7E7BC2F3FC8BCBBF7C565B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */,
-				BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */,
+				14CB0E93D77109132340F9E4 /* Pods-ColourfulBall.debug.xcconfig */,
+				D5E6C8EFDD3E1F6E6189F804 /* Pods-ColourfulBall.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		547ECAFEBD20FA35F2769595 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C293194D2CAC327B64018CC /* Pods_ColourfulBall.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,12 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1404E2C31C9E0F9200312CF4 /* Build configuration list for PBXNativeTarget "ColourfulBall" */;
 			buildPhases = (
-				2076865A81C70EE30E0F73E9 /* Check Pods Manifest.lock */,
+				C3668E4E4E2506EAFC0F1D3D /* [CP] Check Pods Manifest.lock */,
 				1404E2AD1C9E0F9200312CF4 /* Sources */,
 				1404E2AE1C9E0F9200312CF4 /* Frameworks */,
 				1404E2AF1C9E0F9200312CF4 /* Resources */,
-				088516244ECF3C7C416B063F /* Embed Pods Frameworks */,
-				435D99837A3C15E02B0C6A3D /* Copy Pods Resources */,
+				A08D8AC3F6B9E1E9547233C1 /* [CP] Embed Pods Frameworks */,
+				60363B622D5F187AB090659B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -121,11 +121,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Droids On Roids";
 				TargetAttributes = {
 					1404E2B01C9E0F9200312CF4 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -161,14 +162,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		088516244ECF3C7C416B063F /* Embed Pods Frameworks */ = {
+		60363B622D5F187AB090659B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A08D8AC3F6B9E1E9547233C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,34 +192,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2076865A81C70EE30E0F73E9 /* Check Pods Manifest.lock */ = {
+		C3668E4E4E2506EAFC0F1D3D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		435D99837A3C15E02B0C6A3D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -246,8 +247,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -290,8 +293,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -310,31 +315,36 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		1404E2C41C9E0F9200312CF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */;
+			baseConfigurationReference = 14CB0E93D77109132340F9E4 /* Pods-ColourfulBall.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ColourfulBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.ColourfulBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1404E2C51C9E0F9200312CF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */;
+			baseConfigurationReference = D5E6C8EFDD3E1F6E6189F804 /* Pods-ColourfulBall.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ColourfulBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.ColourfulBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
