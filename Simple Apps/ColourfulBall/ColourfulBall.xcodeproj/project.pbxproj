@@ -13,7 +13,7 @@
 		1404E2C71C9E0FEA00312CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1404E2C61C9E0FEA00312CF4 /* Main.storyboard */; };
 		1404E2C91C9E100500312CF4 /* CircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404E2C81C9E100500312CF4 /* CircleViewModel.swift */; };
 		1404E2CB1C9E102500312CF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404E2CA1C9E102500312CF4 /* ViewController.swift */; };
-		70B7C277EC6F8A3C783B5E16 /* Pods_ColourfulBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */; };
+		7104B33D9DBD23B1BFA0CA46 /* Pods_ColourfulBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D49D708C7440A0EECE5ACFB /* Pods_ColourfulBall.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		1404E2C61C9E0FEA00312CF4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1404E2C81C9E100500312CF4 /* CircleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewModel.swift; sourceTree = "<group>"; };
 		1404E2CA1C9E102500312CF4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.debug.xcconfig"; sourceTree = "<group>"; };
-		BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.release.xcconfig"; sourceTree = "<group>"; };
-		C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColourfulBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D49D708C7440A0EECE5ACFB /* Pods_ColourfulBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColourfulBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30EC335772AECC952E19A5AE /* Pods-ColourfulBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.release.xcconfig"; sourceTree = "<group>"; };
+		8067BAF75864DBE38149EBD0 /* Pods-ColourfulBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColourfulBall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,20 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B7C277EC6F8A3C783B5E16 /* Pods_ColourfulBall.framework in Frameworks */,
+				7104B33D9DBD23B1BFA0CA46 /* Pods_ColourfulBall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03F51B82F9E70045FC07F03A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8067BAF75864DBE38149EBD0 /* Pods-ColourfulBall.debug.xcconfig */,
+				30EC335772AECC952E19A5AE /* Pods-ColourfulBall.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1404E2A81C9E0F9200312CF4 = {
 			isa = PBXGroup;
 			children = (
 				1404E2B31C9E0F9200312CF4 /* ColourfulBall */,
 				1404E2B21C9E0F9200312CF4 /* Products */,
-				EB7E7BC2F3FC8BCBBF7C565B /* Pods */,
-				C08D40C401DEC8CEE5278C98 /* Frameworks */,
+				03F51B82F9E70045FC07F03A /* Pods */,
+				6C48D7ABA80A6A7ED989687C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,21 +83,12 @@
 			path = ColourfulBall;
 			sourceTree = "<group>";
 		};
-		C08D40C401DEC8CEE5278C98 /* Frameworks */ = {
+		6C48D7ABA80A6A7ED989687C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C5F992FF31936D92F741D684 /* Pods_ColourfulBall.framework */,
+				1D49D708C7440A0EECE5ACFB /* Pods_ColourfulBall.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EB7E7BC2F3FC8BCBBF7C565B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */,
-				BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,12 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1404E2C31C9E0F9200312CF4 /* Build configuration list for PBXNativeTarget "ColourfulBall" */;
 			buildPhases = (
-				2076865A81C70EE30E0F73E9 /* Check Pods Manifest.lock */,
+				D0721225781E8A4A0ECB687A /* [CP] Check Pods Manifest.lock */,
 				1404E2AD1C9E0F9200312CF4 /* Sources */,
 				1404E2AE1C9E0F9200312CF4 /* Frameworks */,
 				1404E2AF1C9E0F9200312CF4 /* Resources */,
-				088516244ECF3C7C416B063F /* Embed Pods Frameworks */,
-				435D99837A3C15E02B0C6A3D /* Copy Pods Resources */,
+				9F1B0E7995F2A8B71A5A6955 /* [CP] Embed Pods Frameworks */,
+				C5071F1E3F0AE9126C9F490A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +126,7 @@
 				TargetAttributes = {
 					1404E2B01C9E0F9200312CF4 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = P75L6RL67A;
 					};
 				};
 			};
@@ -161,14 +162,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		088516244ECF3C7C416B063F /* Embed Pods Frameworks */ = {
+		9F1B0E7995F2A8B71A5A6955 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,34 +177,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2076865A81C70EE30E0F73E9 /* Check Pods Manifest.lock */ = {
+		C5071F1E3F0AE9126C9F490A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		435D99837A3C15E02B0C6A3D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColourfulBall/Pods-ColourfulBall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0721225781E8A4A0ECB687A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -316,25 +317,29 @@
 		};
 		1404E2C41C9E0F9200312CF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A09D2F9C8C2A934BE90BA70 /* Pods-ColourfulBall.debug.xcconfig */;
+			baseConfigurationReference = 8067BAF75864DBE38149EBD0 /* Pods-ColourfulBall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P75L6RL67A;
 				INFOPLIST_FILE = ColourfulBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.ColourfulBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
 		1404E2C51C9E0F9200312CF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA939C77C7E9D96C56C840C9 /* Pods-ColourfulBall.release.xcconfig */;
+			baseConfigurationReference = 30EC335772AECC952E19A5AE /* Pods-ColourfulBall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P75L6RL67A;
 				INFOPLIST_FILE = ColourfulBall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.droidsonroids.ColourfulBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};

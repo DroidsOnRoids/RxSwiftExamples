@@ -2,18 +2,29 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - RxCocoa (2.3.0):
-    - RxSwift (~> 2.3)
-  - RxSwift (2.3.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift
-  - RxCocoa
-  - RxSwift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  RxCocoa: cde4e993f496d2577bc3ba8b7dc7bf55a4ed809a
-  RxSwift: 0df59cc5edf28a31dbf83b049220b4b8e76b07c8
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: c7361d961f9b8319ad51a8e21aa78f8b13e232c5
+
+COCOAPODS: 1.2.0.beta.1

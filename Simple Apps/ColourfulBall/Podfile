@@ -3,9 +3,10 @@ use_frameworks!
 
 target 'ColourfulBall' do
 
-pod 'RxSwift'
-pod 'RxCocoa'
-pod 'ChameleonFramework/Swift'
+pod 'RxSwift',    '~> 3.0'
+pod 'RxCocoa',    '~> 3.0'
+
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end
 
