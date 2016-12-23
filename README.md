@@ -41,7 +41,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 
 ## Extensions to external frameworks
 1. [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire. [Example](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/master/Libraries%20Usage/RxAlamofireExample)
-2. [RxRealm](https://github.com/nanoxd/RxRealm) - A simple Realm reactive wrapper for RxSwift.
+2. [RxRealm](https://github.com/RxSwiftCommunity/RxRealm) - Rx wrapper for Realm's collection types.
 3. [RxNimble](https://github.com/RxSwiftCommunity/RxNimble) - Nimble extensions that making unit testing with RxSwift easier.
 4. [RxQueryKit](https://github.com/QueryKit/RxQueryKit) - RxSwift extensions for dealing with QueryKit.
 5. [FirebaseRxSwiftExtensions](https://github.com/mbalex99/FirebaseRxSwiftExtensions) - Extension Methods for Firebase and RxSwift.
