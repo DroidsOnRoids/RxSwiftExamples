@@ -47,15 +47,14 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         searchBar
             .rx.text // Observable property thanks to RxCocoa
-            .filter { $0 != nil } // we can use RxOptional here, but just to show how to do it without
-            .map { $0! }
+            .orEmpty // Make it non-optional
             .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
-            .filter { $0.characters.count > 0 } // If the new value is really new, filter for non-empty query.
-            .subscribe { [unowned self] (query) in // Here we subscribe to every new value, that is not empty (thanks to filter above).
-                self.shownCities = self.allCities.filter { $0.hasPrefix(query.element!) } // We now do our "API Request" to find cities.
+            .filter { !$0.isEmpty } // If the new value is really new, filter for non-empty query.
+            .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value, that is not empty (thanks to filter above).
+                self.shownCities = self.allCities.filter { $0.hasPrefix(query) } // We now do our "API Request" to find cities.
                 self.tableView.reloadData() // And reload table view data.
-            }
+            })
             .addDisposableTo(disposeBag) // Don't forget to add this to disposeBag. We want to dispose it on deinit.
     }
     
@@ -70,7 +69,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath)
         cell.textLabel?.text = shownCities[indexPath.row]
         
         return cell
