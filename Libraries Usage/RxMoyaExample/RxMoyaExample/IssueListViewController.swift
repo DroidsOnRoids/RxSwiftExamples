@@ -42,7 +42,7 @@ class IssueListViewController: UIViewController {
     
     var latestRepositoryName: Observable<String> {
         return searchBar.rx.text
-            .filterNil()
+            .orEmpty
             .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
     }
@@ -76,11 +76,11 @@ class IssueListViewController: UIViewController {
         // and the keyboard is still visible, hide it
         tableView
             .rx.itemSelected
-            .subscribe { indexPath in
+            .subscribe(onNext: { indexPath in
                 if self.searchBar.isFirstResponder == true {
                     self.view.endEditing(true)
                 }
-            }
+            })
             .addDisposableTo(disposeBag)
     }
 

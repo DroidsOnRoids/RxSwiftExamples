@@ -23,7 +23,6 @@ enum GitHub {
 }
 
 extension GitHub: TargetType {
-
     var baseURL: URL { return URL(string: "https://api.github.com")! }
     var path: String {
         switch self {
@@ -57,5 +56,8 @@ extension GitHub: TargetType {
     }
     var task: Task {
         return .request
+    }
+    var parameterEncoding: ParameterEncoding {
+        return JSONEncoding.default
     }
 }
