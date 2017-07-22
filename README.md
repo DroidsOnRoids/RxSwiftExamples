@@ -1,8 +1,8 @@
 # RxSwiftExamples
 
-<br />
-## Branch master is currently trying to move to Swift 3.0 version. If you want to see Swift 2.2 version of this repo, please see the [swift-2.2](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/swift-2.2) branch.
-<br />
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+## Branch master is mostly in Swift 3.0 right now. If you want to see Swift 2.2 version of this repo, please see the [swift-2.2](https://github.com/DroidsOnRoids/RxSwiftExamples/tree/swift-2.2) branch.
 
 This repo should be a nice starting point for anyone that wants to start the new adventure called FRP with [RxSwift](https://github.com/ReactiveX/RxSwift/).
 However, here we also have some references to more advanced examples so that no-one feels unsubscribed 😎
