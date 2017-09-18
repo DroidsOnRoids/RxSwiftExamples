@@ -56,7 +56,7 @@ We try to deeply comment our examples, but bear with us if they aren't and if yo
 
 1. [RxChat](https://github.com/bontoJR/RxChat) - Chat application also using RxSwift.
 2. [RxPagination](https://github.com/tryswift/RxPagination) - Really nice demo for "Protocol-Oriented Programming in Networking", using RxSwift.
-3. [RxTestScheduler](https://github.com/kumapo/RxSwiftTestSchedulerExample) - Example of how you can use RxSwift's `TestScheduler`. Unfortunately comments are not in English 😥
+3. [RxTestScheduler](https://github.com/kumapo/RxSwiftTestSchedulerExample) - Example of how you can use RxSwift's `TestScheduler`. Unfortunately comments are not in English 😢
 4. [RxGitHubAPI](https://github.com/FengDeng/RxGitHubAPI) - GitHub API example. Unfortunately comments are not in English 😥
 5. [Parse-RxSwift](https://github.com/bluelinelabs/Parse-RxSwift) - A collection of wrapper classes that allow you to use RxSwift Observers in place of Parse's callbacks.
 6. [RxSwiftGram](https://github.com/Dwar3xwar/RxSwiftGram) - Educational App using RxSwift and MVVM with the Instagram API.
