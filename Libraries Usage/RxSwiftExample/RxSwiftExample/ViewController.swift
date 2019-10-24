@@ -48,14 +48,14 @@ class ViewController: UIViewController {
         searchBar
             .rx.text // Observable property thanks to RxCocoa
             .orEmpty // Make it non-optional
-            .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) // Wait 0.5 for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
             .filter { !$0.isEmpty } // If the new value is really new, filter for non-empty query.
             .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value, that is not empty (thanks to filter above).
                 self.shownCities = self.allCities.filter { $0.hasPrefix(query) } // We now do our "API Request" to find cities.
                 self.tableView.reloadData() // And reload table view data.
             })
-            .addDisposableTo(disposeBag) // Don't forget to add this to disposeBag. We want to dispose it on deinit.
+            .disposed(by: disposeBag) // Don't forget to add this to disposeBag. We want to dispose it on deinit.
     }
     
 }
@@ -71,6 +71,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath)
         cell.textLabel?.text = shownCities[indexPath.row]
+        cell.textLabel?.textColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
         
         return cell
     }

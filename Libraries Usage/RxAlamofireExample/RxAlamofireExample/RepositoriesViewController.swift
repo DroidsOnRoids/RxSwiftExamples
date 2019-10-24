@@ -44,8 +44,8 @@ class RepositoriesViewController: UIViewController {
         return searchBar.rx.text
             .filter { $0 != nil }
             .map { $0! }
-            .filter { $0.characters.count > 0 }
-            .debounce(0.5, scheduler: MainScheduler.instance)
+            .filter { $0.count > 0 }
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
     }
     
@@ -65,7 +65,7 @@ class RepositoriesViewController: UIViewController {
                 
                 return cell
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         repositoryNetworkModel
             .rx_repositories
@@ -78,7 +78,7 @@ class RepositoriesViewController: UIViewController {
                     }
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func setupUI() {
@@ -87,13 +87,13 @@ class RepositoriesViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
+            name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
     
@@ -101,22 +101,22 @@ class RepositoriesViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         tableViewBottomConstraint.constant = keyboardFrame.height
         UIView.animate(withDuration: 0.3, animations: {
             self.view.updateConstraints()
         }) 
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         tableViewBottomConstraint.constant = 0.0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.updateConstraints()
         })
     }
     
-    func tableTapped(_ recognizer: UITapGestureRecognizer) {
+    @objc func tableTapped(_ recognizer: UITapGestureRecognizer) {
         let location = recognizer.location(in: tableView)
         let path = tableView.indexPathForRow(at: location)
         if searchBar.isFirstResponder {

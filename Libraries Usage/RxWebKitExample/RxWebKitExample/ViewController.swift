@@ -46,42 +46,42 @@ class ViewController: UIViewController {
         webView.rx.title
             .filter { $0 != nil }
             .map { $0! }
-            .filter { $0.characters.count > 0 }
+            .filter { $0.count > 0 }
             .subscribe(onNext: { title in
                 self.title = title
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         searchBar.rx.text
             .filter { $0 != nil }
             .map { $0! }
-            .debounce(0.5, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { URL(string: $0) != nil }
             .map { URL(string: $0)! }
             .subscribe(onNext: { url in
                 self.webView.load(URLRequest(url: url))
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         webView.rx.url
             .subscribe(onNext: { url in
                 self.searchBar.text = url?.absoluteString
                 print("URL: \(url)")                
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         webView.rx.estimatedProgress
             .subscribe(onNext: {
                 print("estimatedProgress: \($0)")
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         webView.rx.loading
             .subscribe(onNext: { loading in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = loading
                 print("loading: \(loading)")
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }   
 }

@@ -25,30 +25,29 @@ class ViewController: UIViewController {
     
     func setupRx() {
         mapView
-            .rx_willStartLoadingMap
-            .subscribeNext {
+            .rx.willStartLoadingMap
+            .subscribe(onNext: {
                 print("Will start loading map")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         mapView
-            .rx_didFinishLoadingMap
-            .subscribeNext {
+            .rx.didFinishLoadingMap
+            .subscribe(onNext: {
                 print("Finished loading map")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         mapView
-            .rx_willStartRenderingMap
-            .subscribeNext {
+            .rx.willStartRenderingMap
+            .subscribe(onNext: {
                 print("Will start rendering map")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
         mapView
-            .rx_didFinishRenderingMap
-            .subscribeNext { fullyRendered in
+            .rx.didFinishRenderingMap
+            .subscribe(onNext: { fullyRendered in
                 print("Finished rendering map? Is it fully rendered tho? Of course \(fullyRendered)!")
-            }
-            .addDisposableTo(disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
-    
 }
 

@@ -1,27 +1,40 @@
 PODS:
-  - Alamofire (4.0.1)
-  - ObjectMapper (2.2.1)
-  - RxAlamofire/Core (3.0.0):
-    - Alamofire (~> 4.0)
-    - RxSwift (~> 3.0)
-  - RxAlamofire/RxCocoa (3.0.0):
+  - Alamofire (4.8.2)
+  - ObjectMapper (3.5.1)
+  - RxAlamofire/Core (5.0.0):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 5.0)
+  - RxAlamofire/RxCocoa (5.0.0):
     - RxAlamofire/Core
-    - RxCocoa (~> 3.0)
-  - RxCocoa (3.0.1):
-    - RxSwift (~> 3.0)
-  - RxSwift (3.0.1)
+    - RxCocoa (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
-  - ObjectMapper (~> 2.2.0)
-  - RxAlamofire/RxCocoa (~> 3.0.0)
+  - ObjectMapper
+  - RxAlamofire/RxCocoa
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - RxAlamofire
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
-  RxAlamofire: 0b1fa48f545fffe7f7a28af2086bcaa3b5946cc9
-  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
-  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  RxAlamofire: e7875a012aff55345672d0f70a2a9cd6aeb0f211
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: fd159d27023d0da367a6158bc273a6c42b5a9205
+PODFILE CHECKSUM: 7cd190d4d1b20dfeae2e30defdfae3cac97eb96b
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.7.5

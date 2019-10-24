@@ -1,19 +1,30 @@
 PODS:
-  - Action (2.0.0):
-    - RxCocoa (~> 3.0)
-    - RxSwift (~> 3.0)
-  - RxCocoa (3.0.1):
-    - RxSwift (~> 3.0)
-  - RxSwift (3.0.1)
+  - Action (4.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
-  - Action (~> 2.0.0)
+  - Action
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Action
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
-  Action: 0bc7f713038917e2d8b7a0cc71278a79c1db06c1
-  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
-  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  Action: 0d14986aad0f1330aa27ce65d0cdeaacbb63d91c
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 4749c0cd4c60677e1d71f8634f2e69d25a34300b
+PODFILE CHECKSUM: 0e3401fa6333ee48f01ff146cacd94b013502ad1
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.7.5

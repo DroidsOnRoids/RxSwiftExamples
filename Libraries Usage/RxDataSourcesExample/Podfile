@@ -1,10 +1,10 @@
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'RxDataSourcesExample' do
 
-pod "RxDataSources", "~> 1.0.0"
-pod "NSObject+Rx", "~> 2.0.0"
+pod "RxDataSources"
+pod "NSObject+Rx"
 
 end
 
@@ -13,7 +13,7 @@ post_install do |installer|
         target.build_configurations.each do |config|
             if config.name == 'Debug'
                 config.build_settings['ENABLE_TESTABILITY'] = 'YES'
-                config.build_settings['SWIFT_VERSION'] = '3.0'
+                config.build_settings['SWIFT_VERSION'] = '5.0'
             end
         end
     end

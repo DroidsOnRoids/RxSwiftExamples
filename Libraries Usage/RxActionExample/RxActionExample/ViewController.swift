@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                 input.rx.text
                     .filter { $0 != nil }
                     .map { $0! }
-                    .map { $0.characters.count > 0 } // map them into array of Observable<Bool>
+                    .map { $0.count > 0 } // map them into array of Observable<Bool>
             } // this allows us to use combineLatest, which fires up whenever any of the observables emits a signal
         
         let validUsername = Observable.combineLatest(validUsernameCollection) { filters in
@@ -69,13 +69,13 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
+            name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
     
@@ -83,8 +83,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let margin: CGFloat = 10.0
         var responderY: CGFloat!
         formFields.forEach { field in
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.3, animations: {
             self.currentTranslation = 0.0
             self.stackView.transform = CGAffineTransform(translationX: 0.0, y: 0.0)

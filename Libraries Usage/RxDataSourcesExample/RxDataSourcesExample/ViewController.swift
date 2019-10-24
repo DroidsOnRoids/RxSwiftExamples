@@ -23,11 +23,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    let dataSource = RxTableViewSectionedReloadDataSource<DefaultSection>()
+
+    let dataSource = RxTableViewSectionedReloadDataSource<DefaultSection>(
+        configureCell: { (_, tableView, indexPath, _) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cityPrototypeCell", for: indexPath)
+            return cell
+    })
+
     var shownCitiesSection: DefaultSection!
     var allCities = [String]()
     var sections = PublishSubject<[DefaultSection]>()
+
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +50,21 @@ class ViewController: UIViewController {
             cell.textLabel?.text = self.shownCitiesSection.items[indexPath.row].title
             return cell
         }
-        
+
         sections
             .asObservable()
-            .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(rx_disposeBag) // Instead of creating the bag again and again, use the extension NSObject_rx
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag) // Instead of creating the bag again and again, use the extension NSObject_rx
         
         searchBar
             .rx.text
             .filter { $0 != nil }
             .map { $0! }
-            .debounce(0.5, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(onNext: { [unowned self] query in
                 let items: [String]
-                if query.characters.count > 0 {
+                if query.count > 0 {
                     items = self.allCities.filter { $0.hasPrefix(query) }
                 } else {
                     items = self.allCities
@@ -69,7 +76,7 @@ class ViewController: UIViewController {
 
                 self.sections.onNext([self.shownCitiesSection])
             })
-            .addDisposableTo(rx_disposeBag)
+            .disposed(by: disposeBag)
     }
 
 }

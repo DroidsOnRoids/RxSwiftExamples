@@ -37,7 +37,7 @@ class IssueListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     let disposeBag = DisposeBag()
-    var provider: RxMoyaProvider<GitHub>!
+    var provider: MoyaProvider<GitHub>!
     var issueTrackerModel: IssueTrackerModel!
     
     var latestRepositoryName: Observable<String> {
@@ -54,7 +54,7 @@ class IssueListViewController: UIViewController {
     
     func setupRx() {
         // First part of the puzzle, create our Provider
-        provider = RxMoyaProvider<GitHub>()
+        provider = MoyaProvider<GitHub>()
         
         // Now we will setup our model
         issueTrackerModel = IssueTrackerModel(provider: provider, repositoryName: latestRepositoryName)
@@ -64,13 +64,12 @@ class IssueListViewController: UIViewController {
         // we have filled up about 3 table view data source methods
         issueTrackerModel
             .trackIssues()
-            .bindTo(tableView.rx.items) { (tableView, row, item) in
+            .bind(to: tableView.rx.items) { (tableView, row, item) in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "issueCell", for: IndexPath(row: row, section: 0))
                 cell.textLabel?.text = item.title
                 
                 return cell
-            }
-            .addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
         
         // Here we tell table view that if user clicks on a cell,
         // and the keyboard is still visible, hide it
@@ -81,7 +80,7 @@ class IssueListViewController: UIViewController {
                     self.view.endEditing(true)
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     func url(_ route: TargetType) -> String {
